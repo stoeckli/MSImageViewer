@@ -1,0 +1,44 @@
+﻿<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<!--                                                                                -->
+<!-- © 2012 Novartis AG. All rights reserved.                                       -->
+<!--                                                                                -->
+<!-- These coded instructions, statements and computer programs contain unpublished -->
+<!-- proprietary information of Novartis AG and are protected by federal  copyright -->
+<!-- law. They may not be disclosed to third parties or copied or duplicated in any -->
+<!-- form, in whole or in part, without the prior written consent of Novartis AG.   -->
+<!--                                                                                -->
+<!-- Author: Jayesh Patel                                                           -->
+<!--                                                                                -->
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
+ <Window x:Class="Novartis.Msi.Core.BinNumberWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:title ="Mass Spec Image Import"
+             d:DesignHeight="300" d:DesignWidth="390" SizeToContent="WidthAndHeight"
+             d:name ="BinWindow">
+    <Grid Height="250" Width="341">
+        <Label Content="Min m/z" HorizontalAlignment="Left" Margin="12,4,0,0" Name="lbMinmz" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Margin="12,31,0,0" Name="MinmzTB" VerticalAlignment="Top" Width="80" TextAlignment="Center"/>
+
+        <Label Content="Max m/z" HorizontalAlignment="Left" Margin="123,4,0,0" Name="lbMaxmz" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Margin="123,0,0,197" Name="MaxmzTB" VerticalAlignment="Bottom" Width="80" TextAlignment="Center"/>
+
+        <Label Content="Bin Size (1)" HorizontalAlignment="Left" Margin="236,4,0,0" Name="lbBinsize" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Margin="236,31,0,0" Name="BinSizeTB" VerticalAlignment="Top" Width="80" TextAlignment="Center"/>
+
+        <Label Content="Data Points" HorizontalAlignment="Left" Margin="12,67,0,0" Name="lbDataPoints" VerticalAlignment="Top" />
+        <TextBox Height="21" HorizontalAlignment="Left" Margin="12,94,0,0" Name="DataPointsTB" VerticalAlignment="Top" Width="145" IsEnabled="False" TextAlignment="Center"/>
+
+        <Label Content="Import Data Size" HorizontalAlignment="Left" Margin="193,67,0,0" Name="lbImportDataSize" VerticalAlignment="Top" />
+        <TextBox Height="21" HorizontalAlignment="Left" Margin="193,94,0,0" Name="ImportDataSizeTB" VerticalAlignment="Top" Width="123" IsEnabled="False" TextAlignment="Center"/>
+
+        <Label Content="File Dimension" HorizontalAlignment="Left" Margin="12,136,0,0" Name="lbFileDim" VerticalAlignment="Top" />
+        <TextBox Height="21" HorizontalAlignment="Left" Margin="12,163,0,0" Name="FileDimTB" VerticalAlignment="Top" Width="145" IsEnabled="False" TextAlignment="Center"/>
+        <Button Content="Reset" Height="25" HorizontalAlignment="Left" Margin="12,202,0,0" Name="ResetBtn" VerticalAlignment="Top" Width="95" Click="ResetBtnClick"/>
+        <Button Content="OK" Height="25" HorizontalAlignment="Right" Margin="0,202,25,0" Name="OKBtn" VerticalAlignment="Top" Width="95" Click="OkBtnClick"/>
+        <Button Content="Calculate" Height="25" HorizontalAlignment="Left" Margin="120,202,0,0" Name="CalcBtn" VerticalAlignment="Top" Width="91" IsDefault="True" Click="CalcBtnClick" />
+    </Grid>
+</Window>

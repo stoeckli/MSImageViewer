@@ -1,0 +1,17 @@
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\WiffLoader.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\WiffLoader.pdb
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\WiffLoader.XML
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\Clearcore2.Data.AnalystDataProvider.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\Clearcore2.Data.CommonInterfaces.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\Clearcore2.Data.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\Clearcore2.Data.WiffReader.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\MsiCore.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\Clearcore2.Utility.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\Clearcore2.InternalRawXYProcessing.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\Clearcore2.ProjectUtilities.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\bin\Debug\Clearcore2.StructuredStorage.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\obj\Debug\WiffLoader.csprojResolveAssemblyReference.cache
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\obj\Debug\Novartis.Msi.PlugIns.WiffLoader.Strings.resources
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\obj\Debug\WiffLoader.csproj.GenerateResource.Cache
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\obj\Debug\WiffLoader.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\WiffLoader\obj\Debug\WiffLoader.pdb

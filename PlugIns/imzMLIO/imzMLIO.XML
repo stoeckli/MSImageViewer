@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>imzMLIO</name>
+    </assembly>
+    <members>
+        <member name="T:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio">
+            <summary>
+            This class registers the imzML file reader / writer
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.author">
+            <summary>
+            Author of Plugin
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.description">
+            <summary>
+            Description of Plugin
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.name">
+            <summary>
+            Name of Plugin
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.version">
+            <summary>
+            Version of Plugin
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.plugInHost">
+            <summary>
+            PlugIn Host
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio"/> class 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.Dispose">
+            <summary>
+            Implements <see cref="M:Novartis.Msi.PlugInSystem.IPlugIn.Dispose"/>.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.Initialize(Novartis.Msi.PlugInSystem.IPlugInHost)">
+            <summary>
+            Implements <see cref="M:Novartis.Msi.PlugInSystem.IPlugIn.Initialize(Novartis.Msi.PlugInSystem.IPlugInHost)"/>.
+            Registers the Loader for 'wiff'-files.
+            </summary>
+            <param name="host">
+            A <see cref="T:Novartis.Msi.PlugInSystem.IPlugInHost"/> instance.
+            </param>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.Author">
+            <summary>
+            Gets the PlugIn author
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.Description">
+            <summary>
+            Gets PlugIn description
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.Host">
+            <summary>
+            Gets the PlugIn's hosting instance.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.Name">
+            <summary>
+            Gets PlugIn name.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.ImzMlio.Version">
+            <summary>
+            Gets the PlugIn version.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.ImzMLIO.ImzMlLoader">
+            <summary>
+            This class implements the <see cref="T:Novartis.Msi.Core.ISpecFileLoader"/> and
+            facilitates the reading of a "imzML-File's" content.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlLoader.supportedFileTypes">
+            <summary>
+            Supported File Type
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlLoader.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.ImzMLIO.ImzMlLoader"/> class 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlLoader.Load(System.String)">
+            <summary>
+            Load the contents of the wiff file specified by <paramref name="filePath"/>
+            </summary>
+            <param name="filePath">A <see cref="T:System.String"/> containing the full qualified path to the wiff file.</param>
+            <returns>A <see cref="T:Novartis.Msi.Core.ISpecFileContent"/> reference to a object containing the loaded data.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlLoader.Load(System.IO.Stream)">
+            <summary>
+            Load the contents of the wiff file specified by <paramref name="inStream"/>
+            </summary>
+            <param name="inStream">A <see cref="T:System.IO.Stream"/> objetc containing the wiff data.</param>
+            <returns>A <see cref="T:Novartis.Msi.Core.ISpecFileContent"/> reference to a object containing the loaded data.</returns>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.ImzMlLoader.Name">
+            <summary>
+            Gets the descpiptive name of the loader.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.ImzMlLoader.SupportedFileTypes">
+            <summary>
+            Gets File types which this loader can process.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter">
+            <summary>
+            ImzMLWriter facilitates the output of <see cref="T:Novartis.Msi.Core.Imaging"/> data in "imzML"
+            format.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.supportedFileTypes">
+            <summary>
+            Supported file types
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.outXml">
+            <summary>
+            The xml outputter ;^)
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.outBin">
+            <summary>
+            The binary outputter ;^)
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.uuid">
+            <summary>
+            the unique id of both files identifying correlation
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.sha1Hash">
+            <summary>
+            containing the binary files sha-1 hash value, used for testing the file integrity
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.data">
+            <summary>
+            the data to save as imzML
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.mzlArrayStart">
+            <summary>
+            the offsets in the ibd file
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.mzlDataStart">
+            <summary>
+            the offsets in the ibd file
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter"/> class 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.Write(Novartis.Msi.Core.Imaging,System.String,System.Boolean)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.Imaging"/> object
+            to a file specified by the file name.
+            </summary>
+            <param name="imagingData">The image data to be written to file.</param>
+            <param name="fileName">The file to which the image data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.Write(Novartis.Msi.Core.Imaging,System.IO.Stream,System.Boolean)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.Imaging"/> object
+            to the given stream.
+            </summary>
+            <param name="imagingData">The image data to be written to file.</param>
+            <param name="outStream">The stream to which the image data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.Write(Novartis.Msi.Core.ImageData)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.ImageData"/> object
+            to a file specified by the file name.
+            </summary>
+            <param name="imgData"><see cref="T:Novartis.Msi.Core.ImageData"/> object to be written.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.Write(Novartis.Msi.Core.ImageSpectrumData)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.ImageSpectrumData"/> object
+            to a file specified by the file name.
+            </summary>
+            <param name="specData"><see cref="T:Novartis.Msi.Core.ImageSpectrumData"/> object to be written.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.WriteFileDescription(System.Boolean,Novartis.Msi.Core.Document)">
+            <summary>
+            Writes data to file
+            </summary>
+            <param name="mrmScan">mrm Scan</param>
+            <param name="doc">Document Name</param>
+            <returns>pass or fail</returns>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.Name">
+            <summary>
+            Gets Name of this writer.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.ImzMlWriter.SupportedFileTypes">
+            <summary>
+            Gets List of supported file types.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.ImzMLIO.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.Strings.ImzMLBinFileExtension">
+            <summary>
+              Looks up a localized string similar to .ibd.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.Strings.ImzMLFileDescription">
+            <summary>
+              Looks up a localized string similar to imzML Files (*.imzML).
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.Strings.ImzMLXmlFileExtension">
+            <summary>
+              Looks up a localized string similar to .imzML.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.Strings.LoaderName">
+            <summary>
+              Looks up a localized string similar to ImzML-File Loader.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.ImzMLIO.Strings.WriterName">
+            <summary>
+              Looks up a localized string similar to ImzML-File Writer.
+            </summary>
+        </member>
+    </members>
+</doc>

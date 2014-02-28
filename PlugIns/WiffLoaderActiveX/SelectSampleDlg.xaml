@@ -1,0 +1,20 @@
+﻿<Window x:Class="Novartis.Msi.PlugIns.WiffLoader.SelectSampleDlg"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Title="Select Sample"
+             Height="164"
+             Width="290"
+             MinHeight="164"
+             MinWidth="290"
+             ResizeMode="CanResizeWithGrip">
+
+    <Grid Height="116">
+        <!-- Accept or Cancel -->
+        <Label Content="Multiple samples in this file:" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="sampleLabel" VerticalAlignment="Top" Width="244" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="12,46,0,0" Name="sampleComboBox" VerticalAlignment="Top" Width="244" SelectionChanged="sampleComboBox_SelectionChanged" />
+        <Button Name="okButton" IsDefault="True" Height="23" HorizontalAlignment="Left" Margin="12,81,0,0" VerticalAlignment="Top" Width="100" Click="okButton_Click">OK</Button>
+        <Button Name="cancelButton" IsCancel="True" Height="23" HorizontalAlignment="Left" Margin="156,81,0,0" VerticalAlignment="Top" Width="100" Click="cancelButton_Click">Cancel</Button>
+    </Grid>
+</Window>

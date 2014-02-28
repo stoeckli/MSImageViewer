@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A1785D4B-8B79-432E-9B8F-B355FE5C8B5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Novartis.Msi.Core</RootNamespace>
+    <AssemblyName>MsiCore</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>MsiCore.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>MsiCore.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AppContext.cs" />
+    <Compile Include="ApplicationEventArgs.cs" />
+    <Compile Include="AppProperties.cs" />
+    <Compile Include="BaseObject.cs" />
+    <Compile Include="BaseObjectList.cs" />
+    <Compile Include="BitmapSourceList.cs" />
+    <Compile Include="BitmapWriter.cs" />
+    <Compile Include="CommonObjects.cs" />
+    <Compile Include="FilterEntry.cs" />
+    <Compile Include="IBitmapSource.cs" />
+    <Compile Include="IBitmapWriter.cs" />
+    <Compile Include="IImagingSource.cs" />
+    <Compile Include="IImagingWriter.cs" />
+    <Compile Include="ImageMetaData.cs" />
+    <Compile Include="ImageSpectrumData.cs" />
+    <Compile Include="CommonDialog.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="DocumentList.cs" />
+    <Compile Include="DocumentManager.cs" />
+    <Compile Include="FileTypeDescriptor.cs" />
+    <Compile Include="FileTypeDescriptorList.cs" />
+    <Compile Include="IApplication.cs" />
+    <Compile Include="IContent.cs" />
+    <Compile Include="ILoader.cs" />
+    <Compile Include="Imaging.cs" />
+    <Compile Include="ImageData.cs" />
+    <Compile Include="IntensityGraph.xaml.cs">
+      <DependentUpon>IntensityGraph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ISpecFileLoader.cs" />
+    <Compile Include="ISpecFileContent.cs" />
+    <Compile Include="IView.cs" />
+    <Compile Include="IViewObject.cs" />
+    <Compile Include="IWriter.cs" />
+    <Compile Include="JpegWriter.cs" />
+    <Compile Include="BinNumberWindow.xaml.cs">
+      <DependentUpon>BinNumberWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MetaDataItem.cs" />
+    <Compile Include="Palettes.cs" />
+    <Compile Include="PlugInHost.cs" />
+    <Compile Include="PngWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegionOfInterest.cs" />
+    <Compile Include="RegionOfInterestDataSetView.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>RegionOfInterestDataSetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RoiListForViews.cs" />
+    <Compile Include="RoiProject.cs" />
+    <Compile Include="RoiThumb.cs" />
+    <Compile Include="SpecFileLoaderList.cs" />
+    <Compile Include="Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TiffWriter.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="ViewImage.xaml.cs">
+      <DependentUpon>ViewImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewImageController.cs" />
+    <Compile Include="ViewCollection.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewControllerList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MsiPlugInSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Program\MsiPlugInSystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WPFVisifire.Charts, Version=4.5.2.1, Culture=neutral, PublicKeyToken=0cd785983078370b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Program\System\WPFVisifire.Charts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="IntensityGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BinNumberWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegionOfInterestDataSetView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Templates\BasicShape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\thumb6x6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "..\..\..\Program"</PostBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_StartDate="2010/12/6" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_BuildAction="ReBuild" BuildVersion_ConfigurationName="Release" BuildVersion_AssemblyInfoFilename="Properties\AssemblyInfo.cs" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

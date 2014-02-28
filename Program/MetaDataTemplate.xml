@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MetaData>
+	<MetaDataItem Name="Study" Type="System.String" Value="" Mutable="true"/>
+	<MetaDataItem Name="Subject" Type="System.String" Value="" Mutable="true"/>
+	<MetaDataItem Name="Section" Type="System.String" Value="" Mutable="true"/>
+	<MetaDataItem Name="Experiment" Type="System.String" Value="" Mutable="true"/>
+</MetaData>

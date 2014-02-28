@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RoiProjects>
+	<RoiSubject Name="RatPresets">
+		<RoiSubjectItem Name="Brain" FillColor="Blue" StrokeColor="Black"/>
+		<RoiSubjectItem Name="Liver" FillColor="Green" StrokeColor="Black"/>
+		<RoiSubjectItem Name="Kidney" FillColor="Maroon" StrokeColor="Black"/>
+		<RoiSubjectItem Name="Blood" FillColor="Purple" StrokeColor="Black"/>
+		<RoiSubjectItem Name="Skin" FillColor="Orange" StrokeColor="Black"/>
+		<RoiSubjectItem Name="Heart" FillColor="Red" StrokeColor="Black"/>
+		<RoiSubjectItem Name="Spine" FillColor="Olive" StrokeColor="Black"/>
+	</RoiSubject>
+	<RoiSubject Name="Drosophilia">
+		<RoiSubjectItem Name="Item 1" FillColor="Red" StrokeColor="Black"/>
+		<RoiSubjectItem Name="Item 2" FillColor="Blue" StrokeColor="Black"/>
+		<RoiSubjectItem Name="Item 3" FillColor="Green" StrokeColor="Black"/>
+		<RoiSubjectItem Name="Item 4" FillColor="Olive" StrokeColor="Black"/>
+	</RoiSubject>
+</RoiProjects>

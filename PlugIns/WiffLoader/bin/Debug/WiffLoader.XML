@@ -1,0 +1,803 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WiffLoader</name>
+    </assembly>
+    <members>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment">
+            <summary>
+            This class encapsulates the specific experiment type
+            'MRM Scan'
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment">
+            <summary>
+            This class is the common base class of the different experiments.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment.#ctor(Clearcore2.Data.DataAccess.SampleData.MSExperiment,Novartis.Msi.PlugIns.WiffLoader.WiffSample)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment"/> class
+            Base-Constructor. Performs the initalizations common to all experiments.
+            </summary>
+            <param name="msexperiment">Mass Spec Experiment</param>
+            <param name="wiffsample">Wiff Sample</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment.Initialize(Clearcore2.Data.DataAccess.SampleData.MSExperiment,Novartis.Msi.PlugIns.WiffLoader.WiffSample)">
+            <summary>
+            Fills this instance data members with the information read from <paramref name="inputMsExperiment"/>
+            </summary>
+            <param name="inputMsExperiment">Mass Spec Experiment</param>
+            <param name="wiffsample">Wiff Sample</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment.Init(Clearcore2.Data.DataAccess.SampleData.MSExperiment,Novartis.Msi.PlugIns.WiffLoader.WiffSample)">
+            <summary>
+            Calls the virtual Initialize method
+            </summary>
+            <param name="msexperiment">Mass Spec Experiment</param>
+            <param name="wiffsample">Wiff Sample</param>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment.SepMaldiParams">
+            <summary>
+            Gets or sets the SepMaldiParams
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.numDataPoint">
+            <summary>
+            Number of datapoints in Ion Chromatogram
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.rawData">
+            <summary>
+            Array for massranges
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.timeData">
+            <summary>
+            Array for time values
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.dwellTime">
+            <summary>
+            Dwell Time
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.massRangeName">
+            <summary>
+            Mass range Name
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.massRangeMax">
+            <summary>
+            max intensity value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.massRangeMin">
+            <summary>
+            min intensity value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.massRanges">
+            <summary>
+            Number items in massRange array
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.timeOffset">
+            <summary>
+            time offset 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.numPointsOnXAxis">
+            <summary>
+            Number of points on X axis
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.numPointsOnYAxis">
+            <summary>
+            Number of points on Y axis
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.speedinXDirection">
+            <summary>
+            speed value in x direction
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.timeinXDirection">
+            <summary>
+            time value in x direction
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.distInXDirection">
+            <summary>
+            x Distance
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.distInYDirection">
+            <summary>
+            y Distance
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.lineBreak">
+            <summary>
+            line break parameter
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.meanValues">
+            <summary>
+            Array for mean values
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.medianValues">
+            <summary>
+            Array for median values
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.#ctor(Clearcore2.Data.DataAccess.SampleData.MSExperiment,Novartis.Msi.PlugIns.WiffLoader.WiffSample)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment"/> class
+            </summary>
+            <param name="msexperiment">Mass Spec Experiment</param>
+            <param name="wiffsample">wiff sample</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.Initialize(Clearcore2.Data.DataAccess.SampleData.MSExperiment,Novartis.Msi.PlugIns.WiffLoader.WiffSample)">
+            <summary>
+            Fills this instance data members with the information read from <paramref name="inputMsExperiment"/>.
+            </summary>
+            <param name="inputMsExperiment">instance, the data source</param>
+            <param name="wiffsample"> Wiff Sample</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.FormatImageFuzzy(System.Single[][],System.Int32,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Copy the data from wiff file datastream to the rectangular array. Take account of the line offset and
+            the line break timings.
+            </summary>
+            <param name="imageData">The allocate 2-dimensional array to receive the formated image.</param>
+            <param name="curMassRange">The index of the massrange for which generate an image.</param>
+            <param name="width">The width of the sample.</param>
+            <param name="dwellTimeSum">The dwelltime of the datastream.</param>
+            <param name="inputLineBreak">The calculated time a linebreak consumes.</param>
+            <param name="inputTimeOffset">The calculated time offset to the first valid intensity value.</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.FormatImageSharp(System.Single[][],System.Int32,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Copy the data from wiff file datastream to the rectangular array. Take account of the line offset and
+            the line break timings.
+            </summary>
+            <param name="imageData">The allocate 2-dimensional array to receive the formated image.</param>
+            <param name="curMassRange">The index of the massrange for which generate an image.</param>
+            <param name="width">The width of the sample.</param>
+            <param name="dwellTimeSum">The dwelltime of the datastream.</param>
+            <param name="inputLineBreak">The calculated time a linebreak consumes.</param>
+            <param name="inputTimeOffset">The calculated time offset to the first valid intensity value.</param>
+            <returns>A double value indicating the quality of the image. This is only in effect in the process of heuristic optimization.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MrmScanExperiment.HeuristicOptimization(System.Single[][],System.Int32,System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            Try to optimize the values for the timeoffset and the the linebreak by varying the values and analyzing the calculated images.
+            </summary>
+            <param name="imageData">The allocated 2-dimensional array to receive the formated image.</param>
+            <param name="curMassRange">The index of the massrange for which generate an image.</param>
+            <param name="width">The width of the sample.</param>
+            <param name="dwellTimeSum">The dwelltime of the datastream.</param>
+            <param name="inputLineBreak">The calculated time a linebreak consumes. This value will be optimized.</param>
+            <param name="inputoffsetTime">input offsetTime</param>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment">
+            <summary>
+            This class encapsulates the specific experiment type (MS)
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.msexperiment">
+            <summary>
+            The MSExperiment attached to this object
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.minMass">
+            <summary>
+            Min Mass in Range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.maxMass">
+            <summary>
+            Max Mass in Range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.massStepSize">
+            <summary>
+            Step size in mass range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.massSpecDataPoints">
+            <summary>
+            Number of points in spectrum range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.binnedmassSpecDataPoints">
+            <summary>
+            Binned massSpecDataPoints
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.numDataPoints">
+            <summary>
+            Number of data Points
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.rawData">
+            <summary>
+            Array for the data points in y axis
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.timeData">
+            <summary>
+            Array for the time points
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.massRangeName">
+            <summary>
+            Mass range name
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.massRangeMax">
+            <summary>
+            Maximum value for massRange 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.massRangeMin">
+            <summary>
+            Minimum value for massRange
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.timeOffset">
+            <summary>
+            time offset
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.numPointsOnXAxis">
+            <summary>
+            Number of points on X Axis
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.numPointsOnYAxis">
+            <summary>
+            Number of points on Y Axis
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.speedinXDirection">
+            <summary>
+            speed value in x direction
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.timeinXDirection">
+            <summary>
+            time value in x direction
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.distInXDirection">
+            <summary>
+            x Distance
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.distInYDirection">
+            <summary>
+            y Distance
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.lineOffset">
+            <summary>
+            Line off set value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.lineBreak">
+            <summary>
+            Line Break value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.meanValue">
+            <summary>
+            Mean Value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.medianValue">
+            <summary>
+            Median Value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.x1">
+            <summary>
+            x1 pos of sample
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.y1">
+            <summary>
+            y1 pos of sample
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.x2">
+            <summary>
+            x2 pos of sample
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.y2">
+            <summary>
+            y2 pos of sample
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.width">
+            <summary>
+            width of the sample
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.dataList">
+            <summary>
+            List of data arrays that hold data for ImageList
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.sampleDataPos">
+            <summary>
+            Local array to store points of interest for sample
+            used to extract the mass spectrum for imagelist
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.binsize">
+            <summary>
+            Bin Size
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.masscal">
+            <summary>
+            Mass Calibration
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.#ctor(Clearcore2.Data.DataAccess.SampleData.MSExperiment,Novartis.Msi.PlugIns.WiffLoader.WiffSample)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment"/> class
+            </summary>
+            <param name="msexperiment">MSScan type Experiment</param>
+            <param name="wiffsample">Wiff Sample</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.Initialize(Clearcore2.Data.DataAccess.SampleData.MSExperiment,Novartis.Msi.PlugIns.WiffLoader.WiffSample)">
+            <summary>
+            Fills this instance data members with the information read from <paramref name="inputMsExperiment"/>
+            </summary>
+            <param name="inputMsExperiment">Mass Spec Experiment</param>
+            <param name="wiffsample">Wiff Sample</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.PopulateListByScan">
+            <summary>
+            This routine gets the full list of Image Data for an MS Scan
+            Populate dataList with data from GetMassSpectrum()
+            Routine Requires sampleDataPos[][] to be populated
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.PopulateListByMass">
+            <summary>
+            This routine gets the full list of Image Data for an MS Scan
+            It uses the GetExtractedIonChromatogram() method to extract the data
+            Runs a little slow.. so using the PopulateListByScan() for now.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.GetBinSize(System.Int64,System.Single,System.Single)">
+            <summary>
+            The function gets the binsize
+            </summary>
+            <param name="scanfilesize">Size of the .scan file</param>
+            <param name="pointsInXDirection">Points in X Direction</param>
+            <param name="pointsInYDirection">Poitns in Y Direction</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.GetPathFileSizeLimit(System.String)">
+            <summary>
+            This function gets the path file filesize limit 
+            </summary>
+            <param name="applicationSettingsFile">Path for the Application settings file</param>
+            <returns>size of the file limit</returns>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.BinSize">
+            <summary>
+            Gets the Bin Size
+            The BinSize property exposed to external object is set to the newbinsize
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.MsScanExperiment.MassCal">
+            <summary>
+            Gets or sets the Mass Calibration array
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.Strings.WiffFileDescription">
+            <summary>
+              Looks up a localized string similar to Analyst Files (*.wiff).
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.WiffExperimentFactory">
+            <summary>
+            Factory for <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment"/> instances. Determines which subclass
+            of <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment"/> to use and delivers a newly intantiated object.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffExperimentFactory.CreateWiffExperiment(Clearcore2.Data.DataAccess.SampleData.MSExperiment,Novartis.Msi.PlugIns.WiffLoader.WiffSample)">
+            <summary>
+            Determines with what kind of experiment we're dealing with and instatiates an object of the accurate 
+            subclass derived from the abstract baseclass read the experiments properties and data.
+            WiffScanTypeEnumeration: Q1, MRM, SimQ1, Q3, SimQ3, Undefined, PrecursorIon, ProductIon, NeutralLoss, TofMS, 
+            TofProductIon, TofPrecursorIon, EnhancedProductIon, EnhancedResolution, MS3, TimeDelayFragmentation, EnhancedMS, EnhancedMulticharge,
+            </summary>
+            <param name="msexperiment"> The msexperiment. </param>
+            <param name="wiffsample"> The wiffsample. </param>
+            <returns> The newly created, <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment"/> dirived object. </returns>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.WiffExperimentList">
+            <summary>
+            A list of <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffExperiment"/> objects.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent">
+            <summary>
+            This class encapsulates the content read from a "Wiff-File"
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.document">
+            <summary>
+            The <see cref="P:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.Document"/> this wiff content belongs to.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.fileName">
+            <summary>
+            The fully qualified filename
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.samples">
+            <summary>
+            The list of samples contained in this wiff file
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.contentList">
+            <summary>
+            The list of image Data objects and spectrum imaging data objects
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.strmaldiparameters">
+            <summary>
+            String that contains the Maldi Parameters
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.#ctor(Novartis.Msi.Core.Document,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent"/> class
+            </summary>
+            <param name="document">The <see cref="P:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.Document"/> this wiff content belongs to.</param>
+            <param name="filePath">The wiff file whose content is to be loaded.</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.LoadContent">
+            <summary>
+            Load the wiff file's content.
+            </summary>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the loading.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.Add(Novartis.Msi.Core.Imaging)">
+            <summary>
+            Add the image describing object to the list of imageDataSets
+            </summary>
+            <param name="imageData">The imaging object.</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.GetContentViews(Novartis.Msi.Core.Document)">
+            <summary>
+            Create the views of this content.
+            </summary>
+            <param name="doc">The <see cref="P:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.Document"/> object this content is associated with.</param>
+            <returns>A <see cref="T:Novartis.Msi.Core.ViewCollection"/> object containing the views.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.GetContent">
+            <summary>
+            Retrieve the loaded content in a list of <see cref="T:Novartis.Msi.Core.BaseObject"/>s.
+            </summary>
+            <returns>The imaging data this object contains.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.GetMaldiParameters(System.String)">
+            <summary>
+            This routine reads the contents of the Wiff file and extracts the Maldi parameters.
+            This routine is a bit of a "hack" because the current Ab Sciex DLL's do not support the Maldi parametershttp://www.skyscanner.net/flights-to/bsl/cheap-flights-to-basel-mulhouse-freiburg-airport.html
+            This routine there is only a single experiment in the WIFF file. If there are more, the the ones from the 
+            first experiment set the values of the Maldi parameters
+            </summary>
+            <param name="filePath">File Path</param>
+            <returns>string containing Maldi Parameters</returns>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.Document">
+            <summary>
+            Gets the Document this wiff content belongs to.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffFileContent.FileName">
+            <summary>
+            Gets the path (full qualified name) of the file associated with this object
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.WiffFileLoader">
+            <summary>
+            This class implements the <see cref="T:Novartis.Msi.Core.ISpecFileLoader"/> and
+            facilitates the reading of a "Wiff-File's" content.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffFileLoader.supportedFileTypes">
+            <summary>
+            Supported file types
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffFileLoader.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffFileLoader"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffFileLoader.Load(System.String)">
+            <summary>
+            Load the contents of the wiff file specified by <paramref name="filePath"/>
+            </summary>
+            <param name="filePath">A <see cref="T:System.String"/> containing the full qualified path to the wiff file.</param>
+            <returns>A <see cref="T:Novartis.Msi.Core.ISpecFileContent"/> reference to a object containing the loaded data.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffFileLoader.Load(System.IO.Stream)">
+            <summary>
+            Load the contents of the wiff file specified by <paramref name="inStream"/>
+            </summary>
+            <param name="inStream">A <see cref="T:System.IO.Stream"/> objetc containing the wiff data.</param>
+            <exception cref="T:System.NotImplementedException">Wiff Load Exception</exception>
+            <returns>A <see cref="T:Novartis.Msi.Core.ISpecFileContent"/> reference to a object containing the loaded data.</returns>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffFileLoader.Name">
+            <summary>
+            Gets descpiptive name of the loader.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffFileLoader.SupportedFileTypes">
+            <summary>
+            Gets file types which this loader can process.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.WiffLoader">
+            <summary>
+            This class facilitates the registration of the WiffLoader.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.author">
+            <summary>
+            List of code authors of the code
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.description">
+            <summary>
+            Description of the object
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.name">
+            <summary>
+            Name of object
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.version">
+            <summary>
+            version of the software
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.plugInHost">
+            <summary>
+            Plud in Host
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffLoader"/> class  
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.Dispose">
+            <summary>
+            Implements <see cref="M:Novartis.Msi.PlugInSystem.IPlugIn.Dispose"/>.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.Initialize(Novartis.Msi.PlugInSystem.IPlugInHost)">
+            <summary>
+            Implements <see cref="M:Novartis.Msi.PlugInSystem.IPlugIn.Initialize(Novartis.Msi.PlugInSystem.IPlugInHost)"/>.
+            Registers the Loader for 'wiff'-files.
+            </summary>
+            <param name="host">
+            A <see cref="T:Novartis.Msi.PlugInSystem.IPlugInHost"/> instance.
+            </param>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.Author">
+            <summary>
+            Gets the PlugIn author.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.Description">
+            <summary>
+            Gets the PlugIn description.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.Host">
+            <summary>
+            Gets the PlugIn's hosting instance.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.Name">
+            <summary>
+            Gets the PlugIn name.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffLoader.Version">
+            <summary>
+            Gets the PlugIn version.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.WiffSample">
+            <summary>
+            This class encapsulates a wiff file sample.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.index">
+            <summary>
+            The <b>one-based</b> index of this sample in the wiff file.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.experiments">
+            <summary>
+            The list of experiments this sample consists of.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.wiffFileContent">
+            <summary>
+            &gt;The <see cref="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.WiffFileContent"/> instance this sample belongs to.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.maldiparametersstring">
+            <summary>
+            String that contains the Maldi Parameters
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.x1">
+            <summary>
+            User Data
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.x2">
+            <summary>
+            User Data
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.y1">
+            <summary>
+            User Data
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.y2">
+            <summary>
+            User Data
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.width">
+            <summary>
+            User Data
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.height">
+            <summary>
+            User Data
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.name">
+            <summary>
+            The name of this sample.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.positionData">
+            <summary>
+            Array for all the image data
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.positionDataLength">
+            <summary>
+            The count of data triplets in <see cref="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.PositionData"/>
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.WiffLoader.WiffSample.scanfilesize">
+            <summary>
+            Scan File Size
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffSample.#ctor(Clearcore2.Data.DataAccess.SampleData.Batch,Novartis.Msi.PlugIns.WiffLoader.WiffFileContent,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffSample"/> class. 
+            Constructor
+            </summary>
+            <param name="wiffFile"> The source from where to read the samples properties and data </param>
+            <param name="wiffFileContent"> instance this sample belongs to </param>
+            <param name="sampleIndex"> value specifying the <b>one-based</b>index of this sample in the  </param>
+            <param name="maldiparamstr"> String that contains the Maldi Parameters </param>         
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.WiffLoader.WiffSample.Initialize(Clearcore2.Data.DataAccess.SampleData.Batch)">
+            <summary>
+            Fills this instance data members with the information read from <paramref name="wiffFile"/>.
+            </summary>
+            <param name="wiffFile">A <see cref="T:Clearcore2.Data.DataAccess.SampleData.Batch"/> instance. The data source.</param>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.Height">
+            <summary>
+            Gets the height of this sample.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.Width">
+            <summary>
+            Gets the width of this sample.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.Index">
+            <summary>
+            Gets the one-based index of this sample in the wiff file.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.Name">
+            <summary>
+            Gets the name of this sample.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.P1">
+            <summary>
+            Gets the first point (X1,Y1) of this sample as a <see cref="T:System.Windows.Point"/> structure.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.P2">
+            <summary>
+            Gets the last point (X1,Y1) of this sample as a <see cref="T:System.Windows.Point"/> structure.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.PositionData">
+            <summary>
+            Gets the position data of this sample. 
+            The data layout is: uint[PositionDataLength, 3];
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.PositionDataLength">
+            <summary>
+            Gets the count of data triplets in <see cref="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.PositionData"/>.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.WiffFileContent">
+            <summary>
+            Gets the WiffFileContent instance this sample belongs to.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.MaldiParametersString">
+            <summary>
+            Gets the Maldi Parameter String
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.WiffLoader.WiffSample.ScanFileSize">
+            <summary>
+            Gets or sets the size of the scan file, used for binning
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.WiffLoader.WiffSampleList">
+            <summary>
+            A list of <see cref="T:Novartis.Msi.PlugIns.WiffLoader.WiffSample"/> objects.
+            </summary>
+        </member>
+    </members>
+</doc>

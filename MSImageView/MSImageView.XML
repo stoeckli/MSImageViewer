@@ -1,0 +1,1232 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MSImageView</name>
+    </assembly>
+    <members>
+        <member name="T:Novartis.Msi.MSImageView.ExtensionMethods">
+            <summary>
+            Extentsion methods
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.ExtensionMethods.EmptyDelegate">
+            <summary>
+            An Empty Delegate
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ExtensionMethods.Refresh(System.Windows.UIElement)">
+            <summary>
+            Force a re-rendering of the given UIElement.
+            </summary>
+            <param name="uiElement">Ui Element</param>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.ImagePropsContent">
+            <summary>
+            Interaction logic for ImagePropsContent.xaml
+            </summary>
+            <summary>
+            ImagePropsContent
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.ImagePropsContent.paletteToolTip">
+            <summary>
+            The tooltip of the palette combobox showing the currently selected palette as an image.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.ImagePropsContent.paletteIndex">
+            <summary>
+            palette Index
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.ImagePropsContent.currentmass">
+            <summary>
+            Current Scan Number chosen
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.ImagePropsContent.startmass">
+            <summary>
+            This is the start mass [m/z] in the MSExperiment Mass range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.ImagePropsContent.endmass">
+            <summary>
+            This is the end mass [m/z] in the MSExperiment Mass range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.ImagePropsContent.stepsize">
+            <summary>
+            The step size for the mass range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.ImagePropsContent.masscal">
+            <summary>
+            Mass Calibration
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.MSImageView.ImagePropsContent"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.UpdateUi(System.Boolean)">
+            <summary>
+            Update the state of the UI.
+            </summary>
+            <param name="enable">Should the controls be enabled?</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.FillPaletteComboBox">
+            <summary>
+            Fill the palette combobox with the available palette representations.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.Masstodp(System.Single)">
+            <summary>
+            This routine calculates the datapoint to a mass
+            </summary>
+            <param name="searchMass">Mass to Search</param>
+            <returns>Search Mass</returns>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.SetMassDetails">
+            <summary>
+            Sets various properties of various controls related to 
+            the number of scans (Called when MaxMasses is set)
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.MsExpControlIsEnabledVisible(System.Boolean,System.Windows.Visibility)">
+            <summary>
+            This method is used to enable and disable the controls related to
+            MS Type Experiments
+            </summary>
+            <param name="isEnabled">Is Control Enabled Flag</param>
+            <param name="isVisible">Is Control Visible</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.ViewChanged(Novartis.Msi.Core.ExperimentType)">
+            <summary>
+            Call this method when the view is changed, enables/shows the 
+            controls and sets the current Experiment Type
+            </summary>
+            <param name="expType">Experiment Type</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.CurrentMassChanged">
+            <summary>
+            Current Mass 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.CbImageRepresentationSelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            Combobox Image changed
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Arg</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.SlMinIntensityValueChanged(System.Object,System.Windows.RoutedPropertyChangedEventArgs{System.Double})">
+            <summary>
+            Minimum Intensity Value Changed
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.SlMaxIntensityValueChanged(System.Object,System.Windows.RoutedPropertyChangedEventArgs{System.Double})">
+            <summary>
+            Maximum Intensity Value Changed
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.MaxIntensityTextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Maximum Intensity Text Changed
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.MinIntensityTextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Minimum Intensity Text Changed
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.SlCurrScanNumberValueChanged(System.Object,System.Windows.RoutedPropertyChangedEventArgs{System.Double})">
+            <summary>
+            Event for Scan Slider
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Events Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.ShowTicBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            This event sets the current Image to the TIC Image
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">TextChanged Events Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.CurrMassLostKeyboardFocus(System.Object,System.Windows.Input.KeyboardFocusChangedEventArgs)">
+            <summary>
+            Event Handler for Lost Keyboard Focus Event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.CurrMassKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Event Handler for Key Down Event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Key Event Arg</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ImagePropsContent.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.CurrentMass">
+            <summary>
+            Gets or sets the current mass
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.StartMass">
+            <summary>
+            Gets or sets the start mass
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.EndMass">
+            <summary>
+            Gets or sets the end mass
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.StepSize">
+            <summary>
+            Gets or sets the step size
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.MaxIntensitySettings">
+            <summary>
+            Gets or sets the minimum intensity settings currently in effect for the active view.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.MinIntensitySettings">
+            <summary>
+            Gets or sets the minimum intensity settings currently in effect for the active view.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.PaletteIndex">
+            <summary>
+            Gets or sets the index of the currently selected palette to use for image representation.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.ElementWidth">
+            <summary>
+            Gets the width of the element.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.CurrentExperimentType">
+            <summary>
+            Gets or sets the currentexperimenttype
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ImagePropsContent.MassCal">
+            <summary>
+            Gets or sets the Mass Calibration array
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.IntensityGraphContent">
+            <summary>
+            Interaction logic for IntensityGraphContent.xaml
+            </summary>
+            <summary>
+            IntensityGraphContent
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.IntensityGraphContent.intensitypoints">
+            <summary>
+            Intensity Poitns to map
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.IntensityGraphContent.numberofpoints">
+            <summary>
+            Number of Data Points
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.IntensityGraphContent.minmassrange">
+            <summary>
+            Min Mass or Chosen Range 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.IntensityGraphContent.maxmassrange">
+            <summary>
+            Max Mass or Chosen Range 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.IntensityGraphContent.chosenmass">
+            <summary>
+            Chosen mass
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.IntensityGraphContent.#ctor(System.Single[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.MSImageView.IntensityGraphContent"/> class
+            </summary>
+            <param name="data">Array containing Intensity values to be mapped</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.IntensityGraphContent.PopulateChart">
+            <summary>
+            This routine populates the main chart
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.IntensityGraphContent.CloseButtonClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event Handler for close button
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Arggs</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.IntensityGraphContent.IntensityChartMouseRightButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Right Mouse Button down event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Object</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.IntensityGraphContent.IntensityChartMouseLeftButtonUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Left Mouse Button down event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Object</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.IntensityGraphContent.IntensityChartMouseRightButtonUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Right Mouse Button up event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Object</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.IntensityGraphContent.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.IntensityGraphContent.ChosenMass">
+            <summary>
+            Gets the chosen mass
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.IntensityGraphContent.MaxMassRange">
+            <summary>
+            Gets the Max mass of chosen range
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.IntensityGraphContent.MinMassRange">
+            <summary>
+            Gets the Min mass of chosen range
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.NewRoiDataSet">
+            <summary>
+            Interaction logic for NewRoiDataSet.xaml
+            </summary>
+            <summary>
+            NewRoiDataSet
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.NewRoiDataSet.roiprojectname">
+            <summary>
+            Field used to define the name of the RoiProject
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.NewRoiDataSet.roiprojecttype">
+            <summary>
+            Field used to define the RoiProject type
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.NewRoiDataSet.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.MSImageView.NewRoiDataSet"/> class  
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.NewRoiDataSet.PopulateComboBox">
+            <summary>
+            This routine populates the DataSet type Combobox with contents
+            from the RoiDataSetTypes.xml file
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.NewRoiDataSet.WindowLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Window Loaded - Initialise various things
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.NewRoiDataSet.CancelBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Cancel Button Click Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.NewRoiDataSet.OkBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Ok Button Click Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.NewRoiDataSet.RoiProjectTypeComboSelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            Combo Box Selection changed event.
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.NewRoiDataSet.RoiProjectNameTbTextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Text Change Event for DataSetName Text Biox
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.NewRoiDataSet.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.NewRoiDataSet.RoiProjectName">
+            <summary>
+            Gets the RoiProject Name
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.NewRoiDataSet.RoiProjectType">
+            <summary>
+            Gets the RoiProject Type
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.RoiProjectWindow">
+            <summary>
+            Interaction logic for RoiProjectWindow.xaml
+            </summary>
+            <summary>
+            RoiProjectWindow
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.RoiProjectWindow.roiprojectname">
+            <summary>
+            Roi project name
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.RoiProjectWindow.roiprojecttype">
+            <summary>
+            Roi Project Dataset Type
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.RoiProjectWindow.roiObjects">
+            <summary>
+            Contains a list of ROI objects
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.RoiProjectWindow.currentimagepath">
+            <summary>
+            Current selected image path
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.RoiProjectWindow.currentarea">
+            <summary>
+            Current selected Area
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.RoiProjectWindow.currentmeanintensity">
+            <summary>
+            Current selected MeanIntensity
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.RoiProjectWindow.currentRoi">
+            <summary>
+            Holder for current selected Roi
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.RoiProjectWindow.roiprojectchangedflag">
+            <summary>
+            Flag to indicated if project has been udapted
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.MSImageView.RoiProjectWindow"/> class 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.SetUpRoiProjectWindow">
+            <summary>
+            Method used to set up the Roi Project Window (tab)
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.EnableControls(System.Boolean)">
+            <summary>
+            Routine used to enable or disable controls
+            </summary>
+            <param name="enable">flag to indicate whether to enable or disable controls</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.PopulateNewRoiProjectTree">
+            <summary>
+            Method to populate the Project tree with a new Roi
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.OpenAllViewImages">
+            <summary>
+            This method opens all the Unique Images. It does this by going through 
+            the list of ROI and finding unique Images. For each Unique image it associates
+            all the ROI's attached to this image.
+            Step 1 Find all the unique paths in roiObjects
+            Step 2 Set the ImageData for each ROI (from open doc)
+            Step 3 For each generated Imageview set ROI Objects
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.RoiProjectWindowLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event Handler for Loaded Window
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">routed event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.ImagePathBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event Handler for clicking image path button
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">routed event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.RoiProjectTreeViewSelectedItemChanged(System.Object,System.Windows.RoutedPropertyChangedEventArgs{System.Object})">
+            <summary>
+            Tree view selected Item Change
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">routed event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.ImagePathTbTextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            ImagePath Textbox change event
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">routed event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.AreaTbTextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Area Textbox change event
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">routed event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.MeanIntTbTextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            MeanIntensity Textbox change event
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">routed event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.ViewAllImagesBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            This event handler Opens all unique Images (in Views) and assigns them the appropriate ROI's
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">routed event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.RoiProjectWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.RoiProjectWindow.RoiProjectName">
+            <summary>
+            Gets or Sets the roiprojectname
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.RoiProjectWindow.RoiProjectType">
+            <summary>
+            Gets or Sets the roiprojecttype
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.RoiProjectWindow.RoiObjects">
+            <summary>
+            Gets or Sets the list of roiObjects
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.RoiProjectWindow.CurrentImagePath">
+            <summary>
+            Gets or Sets the currentimagepath
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.RoiProjectWindow.CurrentArea">
+            <summary>
+            Gets or Sets the currentarea
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.RoiProjectWindow.CurrentMeanIntensity">
+            <summary>
+            Gets or Sets the currentmeanintensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.RoiProjectWindow.ProjectChangedFlag">
+            <summary>
+            Gets or Sets the currentmeanintensity
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.AllFilesDesc">
+            <summary>
+              Looks up a localized string similar to All files.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.AllFilesExt">
+            <summary>
+              Looks up a localized string similar to *.*.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.AppName">
+            <summary>
+              Looks up a localized string similar to MSImageView.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.CommandLineUsage">
+            <summary>
+              Looks up a localized string similar to command line usage.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.ConfirmDeleteQuery">
+            <summary>
+              Looks up a localized string similar to Do you really want to delete the selected item(s).
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.ConfirmDeleteTitle">
+            <summary>
+              Looks up a localized string similar to Confirm Delete.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.Switches">
+            <summary>
+              Looks up a localized string similar to [/batch [/saveas [img | imzML]] [/bitmap [jpg | png | tif]] [/outdir path] [/bitmapdir path] [/optwiff] files.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.UsageText">
+             <summary>
+               Looks up a localized string similar to Unless you specify &apos;/batch&apos; none of the other switches will come to effect.
+            If you omit all switches, the program will start in interactive mode
+            and the specified file(s), if any, will be loaded.
+            If [/outdir path] is given, the results of a conversion (/saveas) or
+            bitmap creation (/bitmap) will be created in the given directory..
+             </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.XmlFileDescription">
+            <summary>
+              Looks up a localized string similar to XML File (*.xml).
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Strings.XmlFileExtension">
+            <summary>
+              Looks up a localized string similar to .xml.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.ViewContent">
+            <summary>
+            Interaction logic for ViewContent.xaml
+            </summary>
+            <summary>
+            ViewContent
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.ViewContent.view">
+            <summary>
+            The View
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ViewContent.#ctor(System.Windows.Controls.UserControl)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.MSImageView.ViewContent"/> class
+            </summary>
+            <param name="viewControl">User Control to be viewed</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ViewContent.DetachView">
+            <summary>
+            Detaches the View
+            </summary>
+            <returns>True or False Depending on successful detachment of view</returns>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ViewContent.DocumentContentClosing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Document Closing method
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Argument</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.ViewContent.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.ViewContent.View">
+            <summary>
+             Gets the View
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.exitCommand">
+            <summary>
+            The exit command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.toggleToolTipsCommand">
+            <summary>
+            The 'toggle tooltips' command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.aboutCommand">
+            <summary>
+            The about command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.useApproximationCommand">
+            <summary>
+            The 'use approximation' command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.newRoiCommand">
+            <summary>
+            The newROI command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.openRoiCommand">
+            <summary>
+            The openROI command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.saveRoiCommand">
+            <summary>
+            The saveROI command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.saveRoiAsCommand">
+            <summary>
+            The saveROIAs command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.closeRoiCommand">
+            <summary>
+            The closeROI command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.lockObject">
+            <summary>
+            Lock Object
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.updateProgressDelegate">
+            <summary>
+            Update Progress bar delegate method
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.views">
+            <summary>
+            List of <see cref="T:Novartis.Msi.Core.IView"/> objects and there docking containers (<see cref="T:Novartis.Msi.MSImageView.ViewContent"/>).
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.activeView">
+            <summary>
+            The currently active view or null ifn't any view exists.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.activatePostClose">
+            <summary>
+            View Content
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.roiproject">
+            <summary>
+            A roiProject
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.MSImageView.MainWindow.roiprojectchangedflag">
+            <summary>
+            Flag for indicating if current roi project has changed
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.MSImageView.MainWindow"/> class  
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.Main(System.String[])">
+            <summary>
+            Main entry point for the application.
+            </summary>
+            <param name="args">Args for main</param> 
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.InitializeUi">
+            <summary>
+            Perform all necessary UI initializations...
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.UpdateUi">
+            <summary>
+            Update the state of the UI.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.AddView(Novartis.Msi.Core.IView)">
+            <summary>
+            Adds the given view to the mdi gui.
+            </summary>
+            <param name="view">The view to be added as a <see cref="T:Novartis.Msi.Core.IView"/> reference.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success.</returns>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.RemoveView(Novartis.Msi.Core.IView)">
+            <summary>
+            Removes the given view from the mdi gui.
+            </summary>
+            <param name="view">The view to be removed as a <see cref="T:Novartis.Msi.Core.IView"/> reference.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success.</returns>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.CloseView(Novartis.Msi.Core.IView)">
+            <summary>
+            Removes the given view from the mdi gui and closes it.
+            </summary>
+            <param name="view">The view to be removed as a <see cref="T:Novartis.Msi.Core.IView"/> reference.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success.</returns>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.ProgressStart(System.String)">
+            <summary>
+            Starts a progressbar action. The specified <paramref name="operation"/> identifier and the progressbar are shown and the
+            progressbar is made ready to receive values.
+            </summary>
+            <param name="operation">A identifier describing the current operation.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.ProgressSetValue(System.Double)">
+            <summary>
+            Sets the Progressbar to show the specified <paramref name="value"/>.
+            </summary>
+            <param name="value">The value to be shown in the progressbar. The range of values is expected to be 0.0 to 100.0</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.ProgressClear">
+            <summary>
+            Stops the current progressbar action. Clears and hides the progressbar.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnViewClosing(Novartis.Msi.MSImageView.ViewContent,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            OnViewClosing() Implementation
+            </summary>
+            <param name="viewContent">ViewContent Item</param>
+            <param name="e">cancel event argument</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.ProcessCommandLine">
+            <summary>
+            Process the command line by analyzing the arguments and parameter and act accordingly
+            </summary>
+            <returns>A <see cref="T:System.Boolean"/> value indicating if the application should continue after the commandline processing.</returns>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.GetRoiProjectTypes(System.String)">
+            <summary>
+            This method extract the RoiSubjectItems from the RoiProjects.xml and 
+            generates a list of RegionOfInerests Object
+            </summary>
+            <param name="roiProjectType">Project Type we want to Open</param>
+            <returns>returns true or false depending on success of opening RoiProjects.xml.</returns>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.CleanRoiProject">
+            <summary>
+            This methods cleans up the current project objects
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.NewRoiProject">
+            <summary>
+            Routine to set up a new ROI project
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.SaveRoiProject">
+            <summary>
+            Routine to Save a Roi Project
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OpenRoiProject">
+            <summary>
+            Routine to Open a Roi Project
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.SaveRoiToXml(System.String)">
+            <summary>
+            Save Roi Project data to a File
+            </summary>
+            <param name="xmlFile">File Name to which Roi data is to be saved</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OpenRoiFromXml(System.String)">
+            <summary>
+            Open File and populate Roi Project Data
+            </summary>
+            <param name="roifilename">File Name containing Roi data</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.CloseRoiProject">
+            <summary>
+            Closes the current ROI Project
+            Checks to see if the current project has been saved
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdOpen(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the <see cref="P:System.Windows.Input.ApplicationCommands.Open"/> event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdSaveAs(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the <see cref="P:System.Windows.Input.ApplicationCommands.SaveAs"/> event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.CanExecuteCmdSaveAs(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
+            <summary>
+            Defines if the Save As command can be executed in the current context.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.Input.CanExecuteRoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdExit(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the exit command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdAbout(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the about command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdToggleToolTips(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the toggle tooltips command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdUseApproximation(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the use approximation command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdNewRoi(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event Handler for NewRoi Menu
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdOpenRoi(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event Handler for OpenRoi Menu
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdSaveRoi(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event Handler for SaveRoi Menu
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdSaveRoiAs(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event Handler for SaveRoiAs Menu
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.OnCmdCloseRoi(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Closes the current ROI Project
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.WindowClosing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the Closing event.
+            </summary>
+            <param name="sender">The object sending the event.</param>
+            <param name="e"><see cref="T:System.ComponentModel.CancelEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.WindowClosed(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Closed event.
+            </summary>
+            <param name="sender">The object sending the event.</param>
+            <param name="e"><see cref="T:System.EventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.WindowInitialized(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Initialized event
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.WindowLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Loaded event.
+            </summary>
+            <param name="sender">The object sending the event.</param>
+            <param name="e"><see cref="T:System.EventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.DockingManagerActiveContentChanged(System.Object,System.EventArgs)">
+            <summary>
+            React on the event that the active view has changed.
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.DockingManagerActiveDocumentChanged(System.Object,System.EventArgs)">
+            <summary>
+            React on the event that the active view has changed.
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.DockingManagerDocumentClosed(System.Object,System.EventArgs)">
+            <summary>
+            React on a view having been closed.
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.DockingManagerDocumentClosing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            React on a view being closed.
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Cancel Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.ShowStatusBarClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Show/Hide the statusbar regarding the user request
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.ViewIntensityGraphClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Bring up the intensity graph window
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.ExitCommand">
+            <summary>
+            Gets Routed ExitCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.ToggleToolTipsCommand">
+            <summary>
+            Gets Routed ToggleToolTipsCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.AboutCommand">
+            <summary>
+            Gets Routed AboutCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.UseApproximationCommand">
+            <summary>
+            Gets Routed UseApproximationCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.NewRoiCommand">
+            <summary>
+            Gets Routed NewRoiCmd
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.OpenRoiCommand">
+            <summary>
+            Gets Routed OpenRoiCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.SaveRoiCommand">
+            <summary>
+            Gets Routed SaveRoiCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.SaveRoiAsCommand">
+            <summary>
+            Gets Routed SaveRoiAsCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.CloseRoiCommand">
+            <summary>
+            Gets Routed CloseCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.StatusInfo">
+            <summary>
+            Gets or sets the text displayed in the statusbar info item of the application.
+            </summary>
+            <value>Status Info Text</value>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.StatusCoord">
+            <summary>
+            Gets or sets the text displayed in the statusbar coordinate item of the application.
+            </summary>
+            <value>A <see langword="string"/> value.</value>
+            <remarks>
+            The text-string usually contains the formatted coordinate-values including units.
+            E.g. 'x: 123.4 mm y: 567.8 mm'
+            </remarks>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.StatusIntensity">
+            <summary>
+            Gets or sets the text displayed in the statusbar intensity item of the application.
+            </summary>
+            <value>A <see langword="string"/> value.</value>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.ActiveView">
+            <summary>
+            Gets the currently active view of the application.
+            </summary>
+            <value>The active view as <see cref="T:Novartis.Msi.Core.IView"/> reference.</value>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.PaletteIndex">
+            <summary>
+            Gets or sets the index of the currently selected palette to use for image representation.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.MinIntensitySettings">
+            <summary>
+            Gets or sets the minimum intensity settings currently in effect for the active view.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.MainWindow.MaxIntensitySettings">
+            <summary>
+            Gets or sets the minimum intensity settings currently in effect for the active view.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.MainWindow.UpdateProgressBarDelegate">
+            <summary>
+            Delegate to facilitate progressbar operation (setting the progressbar value).
+            </summary>
+            <param name="dp">The property to set (e.g. ProgressBar.Value)</param>
+            <param name="value">The value to be assigned to the property (e.g. ProgressBar.Value = (double)value).</param>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.MetaContent">
+            <summary>
+            Interaction logic for MetaContent.xaml
+            </summary>
+            <summary>
+            MetaContent
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MetaContent.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.MSImageView.MetaContent"/> class 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MetaContent.UpdateUi(System.Boolean)">
+            <summary>
+            Update the state of the UI.
+            </summary>
+            <param name="enable">Should the controls be enabled?</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MetaContent.SaveToFileClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Method call for SaveToFileClick
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event Arg</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MetaContent.LoadFromFileClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Load From File Click Event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event Argument</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MetaContent.DeleteClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Delete Click Event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MetaContent.ListViewSelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            ListView Selection Change Event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Arg</param>
+        </member>
+        <member name="M:Novartis.Msi.MSImageView.MetaContent.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.MSImageView.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.MSImageView.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

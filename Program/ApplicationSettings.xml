@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationSettings>
+	<ApplicationSettingItem Name="FileSizeLimit" Type="System.String" Value="100000000"/>
+	<ApplicationSettingItem/>
+	<ApplicationSettingItem/>
+	<ApplicationSettingItem/>
+	<ApplicationSettingItem/>
+	<ApplicationSettingItem/>
+	<ApplicationSettingItem/>
+</ApplicationSettings>

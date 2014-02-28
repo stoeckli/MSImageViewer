@@ -1,0 +1,48 @@
+﻿<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<!-- <copyright file="MsExperiment.xaml" company="Novartis Pharma AG.">             -->
+<!--   Copyright © 2011 Novartis Pharma AG. All rights reserved                     -->
+<!-- </copyright>                                                                   -->
+<!-- These coded instructions, statements and computer programs contain unpublished -->
+<!-- proprietary information of Novartis AG and are protected by federal  copyright -->
+<!-- law. They may not be disclosed to third parties or copied or duplicated in any -->
+<!-- form, in whole or in part, without the prior written consent of Novartis AG.   -->
+<!--                                                                                -->
+<!--                                                                                -->
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<ad:DockableContent x:Class="Novartis.Msi.MSImageView.MsExperimentContent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ad="clr-namespace:AvalonDock;assembly=AvalonDock"
+        Title="MS Experiment" 
+        x:Name="MsExperimentContentWin"
+        Background="White" DockableStyle="DockableToBorders" IsCloseable="False">
+    <Grid>
+        <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="stackPanel">
+                <TextBlock Text="General Info" Height="18" Margin="4,4,4,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <TextBlock Text="Name" Height="18" Margin="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    <TextBox  Name="experimentname" Height="22" Margin="80,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Right" Width="100" Text="{Binding ElementName=MsExperimentContentWin, Path=ExperimentName, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock Text="Number of Scans" Height="18" Margin="4,4,4,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    <TextBox  Name="NumberOfMassesTB" Height="22" Margin="20,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Right" Width="100" Text="{Binding ElementName=MsExperimentContentWin, Path=NumberOfMasses, Mode=TwoWay}"/>
+                </StackPanel>
+
+                <Separator Width="230" Margin="4,4,4,4" HorizontalAlignment="Left" />
+                <TextBlock Text="Pixel Point" Height="20" Margin="4,4,4,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock Text="X Pos" Height="20" Margin="4,4,4,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    <TextBox Height="23" Name="XPos" Margin="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Right" Width="60" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                        <TextBlock Text="Y Pos" Height="20" Margin="4,4,4,0" />
+                        <TextBox Height="23" Name="YPos" Margin="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Right" Width="60" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Button Margin="105,4,4,4"  Name="ShowGraph" Height="25" Width="130" Click="ShowGraphClick">Show Intensity Graph</Button>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</ad:DockableContent>

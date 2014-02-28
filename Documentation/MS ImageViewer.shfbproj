@@ -1,0 +1,85 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <!-- The configuration and platform will be used to determine which
+         assemblies to include from solution and project documentation
+         sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7fc0f6f1-b637-47b0-99c8-1bb48995eeb6}</ProjectGuid>
+    <SHFBSchemaVersion>1.9.0.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual
+         Studio adds them anyway -->
+    <AssemblyName>Documentation</AssemblyName>
+    <RootNamespace>Documentation</RootNamespace>
+    <Name>Documentation</Name>
+    <!-- SHFB properties -->
+    <OutputPath>.\Help\</OutputPath>
+    <HtmlHelpName>MSImageViewing</HtmlHelpName>
+    <Language>en-US</Language>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="..\Program\PlugIns\AnalyzeIO.dll" xmlns="" />
+      <DocumentationSource sourceFile="..\PlugIns\AnalyzeIO\AnalyzeIO.XML" xmlns="" />
+      <DocumentationSource sourceFile="..\Program\PlugIns\imzMLIO.dll" xmlns="" />
+      <DocumentationSource sourceFile="..\PlugIns\imzMLIO\imzMLIO.XML" xmlns="" />
+      <DocumentationSource sourceFile="..\Program\MsiCore.dll" xmlns="" />
+      <DocumentationSource sourceFile="..\MsiCore\MsiCore.XML" xmlns="" />
+      <DocumentationSource sourceFile="..\Program\MSImageView.exe" xmlns="" />
+      <DocumentationSource sourceFile="..\MSImageView\MSImageView.XML" xmlns="" />
+      <DocumentationSource sourceFile="..\Program\MsiPlugInSystem.dll" xmlns="" />
+      <DocumentationSource sourceFile="..\MsiPlugInSystem\MsiPlugInSystem.XML" xmlns="" />
+      <DocumentationSource sourceFile="..\Program\PlugIns\WiffLoader.dll" xmlns="" />
+      <DocumentationSource sourceFile="..\PlugIns\WiffLoader\WiffLoader.XML" xmlns="" />
+    </DocumentationSources>
+    <HelpTitle>MS ImageViewing application and classlibraries</HelpTitle>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="Novartis.Msi.Core" isDocumented="True" xmlns="">Facilitates core functionality.
+Common tasks like document and view handling, application-access via static class, etc. are found in the classes contained in this namespace.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Novartis.Msi.MSImageView" isDocumented="True" xmlns="">Contained in this namespaces are the classes realising the 'visible' application.
+Most GUI definitions are encapsulated in this namespace, so that a transition to another presentation
+technology is possible. Currently WPF is used for GUI purposes.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Novartis.Msi.PlugIns.AnalyzeIO" isDocumented="True" xmlns="">The classes  contained in this namespace implement read/write functionality to/from files in analyze format.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Novartis.Msi.PlugIns.ImzMLIO" isDocumented="True" xmlns="">The classes  contained in this namespace implement read/write functionality to/from files in imzML format.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Novartis.Msi.PlugIns.WiffLoader" isDocumented="True" xmlns="">The classes  contained in this namespace implement read/write functionality to/from wiff-files.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Novartis.Msi.PlugInSystem" isDocumented="True" xmlns="">The classes contained in this namespace facilitate plug-in functionality.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="XamlGeneratedNamespace" isDocumented="False" xmlns="" /></NamespaceSummaries>
+  </PropertyGroup>
+  <!-- There are no properties for these groups.  AnyCPU needs to appear in
+       order for Visual Studio to perform the build.  The others are optional
+       common platform types that may appear. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Win32' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AvalonDock">
+      <HintPath>..\Program\System\AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="AvalonDock.Themes">
+      <HintPath>..\Program\System\AvalonDock.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtResources">
+      <HintPath>..\Program\System\ExtResources.dll</HintPath>
+    </Reference>
+    <Reference Include="NETExploreDataObjects">
+      <HintPath>..\Program\System\NETExploreDataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="NETMSMethodSvr">
+      <HintPath>..\Program\System\NETMSMethodSvr.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <!-- Import the SHFB build targets -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
+</Project>

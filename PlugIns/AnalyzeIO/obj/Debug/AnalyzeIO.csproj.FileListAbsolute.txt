@@ -1,0 +1,7 @@
+C:\Dev\MSImageViewer\trunk\PlugIns\AnalyzeIO\bin\Debug\AnalyzeIO.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\AnalyzeIO\bin\Debug\AnalyzeIO.pdb
+C:\Dev\MSImageViewer\trunk\PlugIns\AnalyzeIO\bin\Debug\AnalyzeIO.XML
+C:\Dev\MSImageViewer\trunk\PlugIns\AnalyzeIO\obj\Debug\Novartis.Msi.PlugIns.AnalyzeIO.Strings.resources
+C:\Dev\MSImageViewer\trunk\PlugIns\AnalyzeIO\obj\Debug\AnalyzeIO.csproj.GenerateResource.Cache
+C:\Dev\MSImageViewer\trunk\PlugIns\AnalyzeIO\obj\Debug\AnalyzeIO.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\AnalyzeIO\obj\Debug\AnalyzeIO.pdb

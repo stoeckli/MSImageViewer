@@ -1,0 +1,35 @@
+﻿<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<!-- <copyright file="IntensityGraph.xaml" company="Novartis Pharma AG.">           -->
+<!--   Copyright © 2012 Novartis Pharma AG. All rights reserved                     -->
+<!-- </copyright>                                                                   -->
+<!-- These coded instructions, statements and computer programs contain unpublished -->
+<!-- proprietary information of Novartis AG and are protected by federal  copyright -->
+<!-- law. They may not be disclosed to third parties or copied or duplicated in any -->
+<!-- form, in whole or in part, without the prior written consent of Novartis AG.   -->
+<!--                                                                                -->
+<!--                                                                                -->
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<Window x:Class="Novartis.Msi.Core.IntensityGraph"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
+             mc:Ignorable="d" 
+             d:title ="Intensity Graph"
+             d:DesignHeight="492" d:DesignWidth="867" SizeToContent="WidthAndHeight">
+    <Grid Height="425" Width="828">
+        <Button Content="Close" Height="25" HorizontalAlignment="Left" Margin="706,388,0,0" Name="button1" VerticalAlignment="Top" Width="110" Click="CloseButtonClick"/>
+        <vc:Chart x:Name="IntensityChart" ShadowEnabled="False" ZoomingEnabled="True" Margin="0,10,12,59" MouseRightButtonDown="IntensityChartMouseRightButtonDown" MouseLeftButtonUp="IntensityChartMouseLeftButtonUp" MouseRightButtonUp="IntensityChartMouseRightButtonUp" >
+            <vc:Chart.Titles>
+                <vc:Title Text="Intensity Graph"/>
+            </vc:Chart.Titles>
+            <vc:Chart.AxesY>
+                <vc:Axis ViewportRangeEnabled="True" ScrollBarSize="50" Title="Intensity"></vc:Axis>
+            </vc:Chart.AxesY>
+            <vc:Chart.AxesX>
+                <vc:Axis ViewportRangeEnabled="True" ScrollBarSize="22" Title="Mass Range [m/z]"></vc:Axis>
+            </vc:Chart.AxesX>
+        </vc:Chart>
+    </Grid>
+</Window>

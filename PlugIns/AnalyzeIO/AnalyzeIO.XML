@@ -1,0 +1,735 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AnalyzeIO</name>
+    </assembly>
+    <members>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiment">
+            <summary>
+            This class is the common base class of the different Analyse experiments.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiment.#ctor(Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent,System.String,Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiment"/> class
+            </summary>
+            <param name="analysefilecontent">analyse file content Object</param>
+            <param name="filePath">Path of file </param>
+            <param name="analyseFileHeaderObject">Header Object</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiment.Initialise(Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent,System.String,Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject)">
+            <summary>
+            Fills this instance data members with the information read from the img file
+            </summary>
+            <param name="analysefilecontent">analyse file content Object</param>
+            <param name="filePath">Path of file </param>
+            <param name="analyseFileHeaderObject">Header Object</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiment.Init(Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent,System.String,Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject)">
+            <summary>
+            Calls the virtual Initialize method
+            </summary>
+            <param name="analysefilecontent">analyse file content Object</param>
+            <param name="filePath">Path of file </param>
+            <param name="analyseFileHeaderObject">Header Object</param>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent">
+            <summary>
+            This class encapsulates the content read from a "Analyse-File"
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.document">
+            <summary>
+            The <see cref="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.Document"/> this wiff content belongs to.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.filepath">
+            <summary>
+            The fully qualified filepath
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.contentList">
+            <summary>
+            The list of image Data objects and spectrum imaging data objects
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.#ctor(Novartis.Msi.Core.Document,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent"/> class
+            </summary>
+            <param name="document">The <see cref="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.Document"/> this wiff content belongs to.</param>
+            <param name="filePath">The wiff file whose content is to be loaded.</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.LoadContent">
+            <summary>
+            Load the wiff file's content.
+            </summary>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the loading.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.Add(Novartis.Msi.Core.Imaging)">
+            <summary>
+            Add the image describing object to the list of imageDataSets
+            </summary>
+            <param name="imageData">The imaging object.</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.GetContentViews(Novartis.Msi.Core.Document)">
+            <summary>
+            Create the views of this content.
+            </summary>
+            <param name="doc">The <see cref="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.Document"/> object this content is associated with.</param>
+            <returns>A <see cref="T:Novartis.Msi.Core.ViewCollection"/> object containing the views.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.GetContent">
+            <summary>
+            Retrieve the loaded content in a list of <see cref="T:Novartis.Msi.Core.BaseObject"/>s.
+            </summary>
+            <returns>The imaging data this object contains.</returns>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.Document">
+            <summary>
+            Gets the Document this wiff content belongs to.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent.FilePath">
+            <summary>
+            Gets the path (full qualified name) of the file associated with this object
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject">
+            <summary>
+            The class is a created for an developer to use as an object for 
+            analyse file reading/writing
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.unusedpos4">
+            <summary>
+            This is an unused place holder 
+            Position = 4 ("        16")
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.unusedpos32">
+            <summary>
+            Data Type
+            Position = 32;
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.unusedpos38">
+            <summary>
+            This is an unused place holder
+            Position = 38 114
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.unusedpos40">
+            <summary>
+            This is an unused place holder
+            Position = 40
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.unusedpos48">
+            <summary>
+            This is an unused place holder
+            Position = 48
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.usedpos72">
+            <summary>
+            This is an used parameter
+            Position = 72
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.dimensioninz">
+            <summary>
+            Dimension in z direction
+            Position = 76
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.usedpos88">
+            <summary>
+            This is an used place holder
+            Position = 88
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.#ctor(Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.AnalyseReadorWriteEnum)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject"/> class 
+            </summary>
+            <param name="analyseReadorWriteEnum">Read or Write call</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.SetDefaultsWrite">
+            <summary>
+            This method sets the defaults for this class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.SetDefaultsRead">
+            <summary>
+            This method sets the defaults for this class
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.HeaderSize">
+            <summary>
+             Gets or sets the HeaderSize 
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.UnUsedPos4">
+            <summary>
+            Gets or sets unused unusedpos4
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.UnUsedPos32">
+            <summary>
+            Gets or sets unusedpos32
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.UnUsedPos38">
+            <summary>
+            Gets or sets unusedpos38
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.UnUsedPos40">
+            <summary>
+            Gets or sets unusedpos40
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.NumberOfScans">
+            <summary>
+            Gets or sets Number of Mass scans Pos 42
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.NumberOfXPoints">
+            <summary>
+            Gets or sets Number of X Points
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.NumberOfYPoints">
+            <summary>
+            Gets or sets Number of Y Points
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.UnUsedPos48">
+            <summary>
+            Gets or sets unusedpos48 place 
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.DataType">
+            <summary>
+            Gets or sets Data Type
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.UsedPos72">
+            <summary>
+            Gets or sets usedpos72 parameter
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.DimensionInZ">
+            <summary>
+            Gets or sets Dimension in z direction
+            Position = 76
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.Dx">
+            <summary>
+            Gets or sets Extent in x directon 
+            Position = 80
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.Dy">
+            <summary>
+            Gets or sets Extent in y directon 
+             Position = 84
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.UsedPos88">
+            <summary>
+            Gets or sets usedpos88 place holder
+            Position = 88
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.X1">
+            <summary>
+            Gets or sets X1
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.Y1">
+            <summary>
+            Gets or sets Y1 ushort
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.X2">
+            <summary>
+            Gets or sets X2
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.Y2">
+            <summary>
+            Gets or sets X2
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.Name">
+            <summary>
+            Gets or sets the Name
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.ExperimentType">
+            <summary>
+            Gets or sets the Experiment Type
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.DataByteSize">
+            <summary>
+            Gets or sets the data byte size of data in the image file
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.AnalyseReadorWriteEnum">
+            <summary>
+            Enum to definite read or write Analyse Object
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.AnalyseReadorWriteEnum.Read">
+            <summary>
+            Set read defaults
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject.AnalyseReadorWriteEnum.Write">
+            <summary>
+            Set write defaults 
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment">
+            <summary>
+            This implements the AnalyseMRMExperiment class
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.filePath">
+            <summary>
+            Path of Input file
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.analyseFileHeaderObject">
+            <summary>
+            AnalyseFile Header Object 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.data">
+            <summary>
+            data array for intensity points
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.meanValue">
+            <summary>
+            Array for mean values
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.medianValue">
+            <summary>
+            Array for median values
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.minIntensityValue">
+            <summary>
+            min intensity value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.maxIntensityValue">
+            <summary>
+            max intensity value
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.#ctor(Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent,System.String,Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment"/> class.
+            </summary>
+            <param name="analysefilecontent">analyseFileContent Object</param>
+            <param name="filePath">Path of file that is being read</param>
+            <param name="analyseFileHeaderObject">Header Object</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.Initialise(Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent,System.String,Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject)">
+            <summary>
+            Reads the image file for an MRM experiment
+            </summary>
+            <param name="analysefilecontent">analyse file content Object</param>
+            <param name="filepath">Path of file </param>
+            <param name="analysefileheaderobject">Header Object</param>        
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMrmExperiment.ReadImgFile">
+            <summary>
+            Reads the contents of the "img" file and dumps it into data []
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment">
+            <summary>
+            This implements the AnalyseMsExperiment class
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.Epsilon">
+            <summary>
+            Used to comparing floats 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.filePath">
+            <summary>
+            Path of Input file
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.analyseFileHeaderObject">
+            <summary>
+            AnalyseFile Header Object 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.massspecdatalist">
+            <summary>
+            List of floats
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.masssteps">
+            <summary>
+            Gets or sets array of the Mass range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.minmass">
+            <summary>
+            Min Mass in Range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.maxmass">
+            <summary>
+            Max Mass in Range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.massstepsize">
+            <summary>
+            MassStep Size
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.massspecdatapoints">
+            <summary>
+            Number of points in spectrum range
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.meanValue">
+            <summary>
+            Mean Value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.medianValue">
+            <summary>
+            Median Value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.minIntensityValue">
+            <summary>
+            min intensity value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.maxIntensityValue">
+            <summary>
+            max intensity value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.massRangeName">
+            <summary>
+            Mass range name
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.binsize">
+            <summary>
+            Bin Size
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.masscal">
+            <summary>
+            Mass Calibration
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.#ctor(Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent,System.String,Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment"/> class.
+            </summary>
+            <param name="analysefilecontent">analyseFileContent Object</param>
+            <param name="filePath">Path of file that is being read</param>
+            <param name="analyseFileHeaderObject">Header Object</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.Initialise(Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent,System.String,Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileHeaderObject)">
+            <summary>
+            Reads the Data file
+            </summary>
+            <param name="analysefilecontent">analyse file content Object</param>
+            <param name="filepath">Path of file </param>
+            <param name="analysefileheaderobject">Header Object</param>        
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.ReadCalibrationFile">
+            <summary>
+            Reads the calibration file for MS Experiments - used for Mass Range info
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.GetPathFileSizeLimit(System.String)">
+            <summary>
+            This function gets the path file filesize limit 
+            </summary>
+            <param name="applicationSettingsFile">Path for the Application settings file</param>
+            <returns>size of the file limit</returns>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseMsExperiment.MassCal">
+            <summary>
+            Gets the Mass Calibration array
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiments">
+            <summary>
+            This implements the AnalyseExperiments class
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiments.analyseFileContent">
+            <summary>
+            The <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent"/> instance this sample belongs to.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiments.analyseFileHeaderObject">
+            <summary>
+            AnalyseFileDataObject holds all the data for the Analyze file parameters
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiments.filePath">
+            <summary>
+            Path of file that is read 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiments.#ctor(Novartis.Msi.PlugIns.AnalyzeIO.AnalyseFileContent,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiments"/> class. 
+            </summary>
+            <param name="analyseFileContent"> instance this sample belongs to </param>
+            <param name="filePath">Path of Analyse file</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiments.Initialize">
+            <summary>
+            Does various things to Initialise the AnalyseFileContent object
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiments.ReadHeaderFile">
+            <summary>
+            Reads the hearder file and populates analyseFileHeaderObject
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyseExperiments.ProcessHeader">
+            <summary>
+            This routine takes the header object and does some post processing
+            on the data read from the file
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader">
+            <summary>
+            This class registers the Analyze file reader / writer
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.author">
+            <summary>
+            Author of module
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.description">
+            <summary>
+            Description Field
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.name">
+            <summary>
+            Module Name
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.version">
+            <summary>
+            Version Feild
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.plugInHost">
+            <summary>
+            PlugIn Interface
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader"/> class 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.Dispose">
+            <summary>
+            Implements <see cref="M:Novartis.Msi.PlugInSystem.IPlugIn.Dispose"/>.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.Initialize(Novartis.Msi.PlugInSystem.IPlugInHost)">
+            <summary>
+            Implements <see cref="M:Novartis.Msi.PlugInSystem.IPlugIn.Initialize(Novartis.Msi.PlugInSystem.IPlugInHost)"/>.
+            Registers the Loader for 'wiff'-files.
+            </summary>
+            <param name="host">
+            A <see cref="T:Novartis.Msi.PlugInSystem.IPlugInHost"/> instance.
+            </param>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.Author">
+            <summary>
+            Gets PlugIn author.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.Description">
+            <summary>
+            Gets PlugIn description.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.Host">
+            <summary>
+            Gets the PlugIn's hosting instance.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.Name">
+            <summary>
+            Gets PlugIn name.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeLoader.Version">
+            <summary>
+            Gets PlugIn version.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeFileLoader">
+            <summary>
+            This class implements the <see cref="T:Novartis.Msi.Core.ISpecFileLoader"/> and
+            facilitates the reading of a "Analyze-File's" content.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeFileLoader.supportedFileTypes">
+            <summary>
+            Supported file types 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeFileLoader.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeFileLoader"/> class 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeFileLoader.Load(System.String)">
+            <summary>
+            Load the contents of the wiff file specified by <paramref name="filePath"/>
+            </summary>
+            <param name="filePath">containing the full qualified path to the wiff file.</param>
+            <returns>reference to a object containing the loaded data.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeFileLoader.Load(System.IO.Stream)">
+            <summary>
+            Load the contents of the wiff file specified by <paramref name="inStream"/>
+            </summary>
+            <param name="inStream">A <see cref="T:System.IO.Stream"/> objetc containing the wiff data.</param>
+            <exception cref="T:System.NotImplementedException">Exception Thrown</exception>
+            <returns>A <see cref="T:Novartis.Msi.Core.ISpecFileContent"/> reference to a object containing the loaded data.</returns>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeFileLoader.Name">
+            <summary>
+            Gets the descpiptive name of the loader.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeFileLoader.SupportedFileTypes">
+            <summary>
+            Gets File types which this loader can process.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter">
+            <summary>
+            AnalyzeWriter facilitates the output of <see cref="T:Novartis.Msi.Core.Imaging"/> data in "Analyze"
+            format.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter.supportedFileTypes">
+            <summary>
+            Supported File Types 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter"/> class 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter.Write(Novartis.Msi.Core.Imaging,System.String,System.Boolean)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.Imaging"/> object
+            to a file specified by the file name.
+            </summary>
+            <param name="imagingData">The image data to be written to file.</param>
+            <param name="fileName">The file to which the image data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter.Write(Novartis.Msi.Core.Imaging,System.IO.Stream,System.Boolean)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.Imaging"/> object
+            to the given stream.
+            </summary>
+            <param name="imagingData">The image data to be written to file.</param>
+            <param name="outStream">The stream to which the image data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter.Write(Novartis.Msi.Core.ImageData,System.String)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.ImageData"/> object
+            to a file specified by the file name.
+            </summary>
+            <param name="imgData"><see cref="T:Novartis.Msi.Core.ImageData"/> object to be written.</param>
+            <param name="fileName">The file to which the image data will be written.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter.Write(Novartis.Msi.Core.ImageSpectrumData,System.String)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.ImageSpectrumData"/> object
+            to a file specified by the file name.
+            </summary>
+            <param name="specData"><see cref="T:Novartis.Msi.Core.ImageSpectrumData"/> object to be written.</param>
+            <param name="fileName">The file to which the image data will be written.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter.Name">
+            <summary>
+            Gets the Name of this writer.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.AnalyzeWriter.SupportedFileTypes">
+            <summary>
+            Gets a List of supported file types.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugIns.AnalyzeIO.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.Strings.AnalyzeFileDescription">
+            <summary>
+              Looks up a localized string similar to Analyze Files (*.img).
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.Strings.AnalyzeFileExtension">
+            <summary>
+              Looks up a localized string similar to .img.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.Strings.LoaderName">
+            <summary>
+              Looks up a localized string similar to Analyze-File Loader.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugIns.AnalyzeIO.Strings.WriterName">
+            <summary>
+              Looks up a localized string similar to Analyze-File Writer.
+            </summary>
+        </member>
+    </members>
+</doc>

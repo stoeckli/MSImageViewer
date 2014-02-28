@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MsiPlugInSystem</name>
+    </assembly>
+    <members>
+        <member name="T:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider">
+            <summary>
+            Dynamically searches for plugins that implement IPlugIn
+            in a specific location
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.IPlugInProvider">
+            <summary>
+            Interface for a plugin provider object
+            Implement this if you need to search for plugins
+            in you own custom way
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.IPlugInProvider.LoadPlugIns(Novartis.Msi.PlugInSystem.PlugInDataList)">
+            <summary>
+              searches for the plugins
+            </summary>
+            <param name="alreadyLoadedPlugIns">Data List</param>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.IPlugInProvider.LoadedPlugIns">
+            <summary>
+            Gets a collection of the plugins that were found
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.plugIns">
+            <summary>
+            Plugin Data List
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.goodTypes">
+            <summary>
+            Type List
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.baseObjectTypesList">
+            <summary>
+            Object Array
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.searchDirectory">
+            <summary>
+            Search Directory
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.fileExtensionFilter">
+            <summary>
+            File Extension Filter
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider"/> class
+            DynamicFindPlugInProvider.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider"/> class
+            </summary>
+            <param name="searchDirectory">
+            The directory where the provider performs the search for plugins.
+            </param>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.LoadPlugIns(Novartis.Msi.PlugInSystem.PlugInDataList)">
+            <summary>
+            Loads the possible plugin assemblies in a separate AppDomain
+            in order to allow unloading of unneeded assemblies.
+            </summary>
+            <param name="alreadyLoadedPlugIns">List of Plugins</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.SearchPath(System.String)">
+            <summary>
+            Searches Path
+            </summary>
+            <param name="path">Path Name</param>
+            <returns>Type List of good paths</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.AddToGoodTypesCollection(System.Type)">
+            <summary>
+            Add types to collection
+            </summary>
+            <param name="goodType">A Good Type</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.TryLoadingPlugIn(System.String)">
+            <summary>
+            Try to load the Plugin
+            </summary>
+            <param name="path">Path of Plugin</param>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.LoadedPlugIns">
+            <summary>
+            Gets the collection of loaded plugins.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.SearchDirectory">
+            <summary>
+            Gets or sets the directory for searching.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.DynamicFindPlugInProvider.FileExtensionFilter">
+            <summary>
+            Gets or sets file extension filter.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.ApplicationClosingEventHandler">
+            <summary>
+            A delegate type for hooking up application closing notifications.
+            </summary>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.IPlugInHost">
+            <summary>
+            The IPlugInHost interface. This interface is used to implement a plugin hosting system
+            </summary>
+        </member>
+        <member name="E:Novartis.Msi.PlugInSystem.IPlugInHost.ApplicationClosing">
+            <summary>
+            An event PlugIns can use to be notified when the application is going to be
+            closed. Registering to this event can be used to execute a PlugIns-cleanup-code
+            before the application finally exits...
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.IPlugIn">
+            <summary>
+            The IPlugIn interface. This interface is used to implement plugins.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.IPlugIn.Initialize(Novartis.Msi.PlugInSystem.IPlugInHost)">
+            <summary>
+            Initialse method
+            </summary>
+            <param name="host">PlugIn Host</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.IPlugIn.Dispose">
+            <summary>
+            Dispose method
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.IPlugIn.Host">
+            <summary>
+            Gets Plugin Host
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.IPlugIn.Name">
+            <summary>
+             Gets the name                   
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.IPlugIn.Description">
+            <summary>
+            Gets Description
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.IPlugIn.Author">
+            <summary>
+            Gets Author
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.IPlugIn.Version">
+            <summary>
+            Gets Version
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.PlugInLoadException">
+            <summary>
+            Custom-Exception which occured during the loading of an PlugIn.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.PlugInLoadException.plugInName">
+            <summary>
+            Plug in Name
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.PlugInLoadException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugInSystem.PlugInLoadException"/> class. 
+            </summary>
+            <param name="plugInName">
+            A <see langword="string"/>-instance defining the name of the PlugIn which
+            loading has failed.
+            </param>
+            <param name="inner">
+            The <see cref="T:System.Exception"/> that has occured during loading of the PlugIn.
+            </param>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.PlugInLoadException.PlugInName">
+            <summary>
+            Gets the name of the PlugIn which loading has failed.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.PlugInData">
+            <summary>
+            This class encapsulates the information of a PlugIn collected during
+            the search for PlugIns.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.PlugInData.plugIn">
+            <summary>
+            The <see cref="T:Novartis.Msi.PlugInSystem.IPlugIn"/>-instance for which the informations are kept.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.PlugInData.assemblyFullName">
+            <summary>
+            Full Assembly Name
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.PlugInData.#ctor(Novartis.Msi.PlugInSystem.IPlugIn)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugInSystem.PlugInData"/> class.
+            </summary>
+            <param name="plugIn">A <see cref="T:Novartis.Msi.PlugInSystem.IPlugIn"/>-reference to the PlugIn for which to keep the information.</param>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.PlugInData.PlugIn">
+            <summary>
+            Gets the PlugIn this class belongs to.
+            </summary>
+            <value>A <see cref="T:Novartis.Msi.PlugInSystem.IPlugIn"/>-reference.</value>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.PlugInData.AssemblyFullName">
+            <summary>
+            Gets the full name <see cref="P:System.Reflection.Assembly.FullName"/> of the assembly hosting the PlugIn-type.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.PlugInDataList">
+            <summary>
+            A list of <see cref="T:Novartis.Msi.PlugInSystem.PlugInData"/> objects.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.PlugInDataList.AddRange(System.Collections.Generic.IEnumerable{Novartis.Msi.PlugInSystem.PlugInData})">
+            <summary>
+            Adds the elements of the specified collection to the end of this list.
+            </summary>
+            <param name="collection">The collection whose elements should be added to the end of this list.
+            The collection itself cannot be null, but it can contain elements that are null</param>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.SectionHandlerPlugInProvider">
+            <summary>
+            This class implements IConfigurationSectionHandler and allows
+            us to parse the "plugin" XML nodes found inside App.Config
+            and return a PlugInCollection object.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.SectionHandlerPlugInProvider.plugIns">
+            <summary>
+            List of Plugins
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.SectionHandlerPlugInProvider.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            Iterate through all the child nodes
+             of the XMLNode that was passed in and create instances
+             of the specified Types by reading the attribute values of the nodes
+             we use a try/Catch here because some of the nodes
+             might contain an invalid reference to a plugin type.
+            </summary>
+            <param name="parent">Parent Object</param>
+            <param name="configContext">Context configuration</param>
+            <param name="section">The XML section we will iterate against</param>
+            <returns>List of Plugins</returns>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.SectionHandlerPlugInProvider.LoadPlugIns(Novartis.Msi.PlugInSystem.PlugInDataList)">
+            <summary>
+            Loads the plugins.
+            </summary>
+            <param name="alreadyLoadedPlugIns"> The already Loaded Plug Ins. </param>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.SectionHandlerPlugInProvider.LoadedPlugIns">
+            <summary>
+            Gets the collection of loaded plugins.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.TypeList">
+            <summary>
+            A list of <see cref="T:System.Type"/> objects.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.PlugInSystem.XmlFilePlugInProvider">
+            <summary>
+            Loads plugins by reading a specific xml file. 
+            The file should contain for each plugin
+            an "add" XML item with a "type" attribute that specifies
+            the full name of the class , a comma, 
+            and the name of the encapsulating assembly.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.XmlFilePlugInProvider.plugIns">
+            <summary>
+            PlugIn List
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.PlugInSystem.XmlFilePlugInProvider.fileName">
+            <summary>
+            File Name
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.XmlFilePlugInProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.PlugInSystem.XmlFilePlugInProvider"/> class.
+            </summary>
+            <param name="xmlFile">Xml File Name</param>
+        </member>
+        <member name="M:Novartis.Msi.PlugInSystem.XmlFilePlugInProvider.LoadPlugIns(Novartis.Msi.PlugInSystem.PlugInDataList)">
+            <summary>
+            Loads the PlugIns.
+            </summary>
+            <param name="alreadyLoadedPlugIns"> List of Plugins </param>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.XmlFilePlugInProvider.FileName">
+            <summary>
+            Gets or sets the filename of the XML file.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.PlugInSystem.XmlFilePlugInProvider.LoadedPlugIns">
+            <summary>
+            Gets the collection of loaded PlugIns.
+            </summary>
+        </member>
+    </members>
+</doc>

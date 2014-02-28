@@ -1,0 +1,7 @@
+C:\Dev\MSImageViewer\trunk\PlugIns\imzMLIO\bin\Debug\imzMLIO.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\imzMLIO\bin\Debug\imzMLIO.pdb
+C:\Dev\MSImageViewer\trunk\PlugIns\imzMLIO\bin\Debug\imzMLIO.XML
+C:\Dev\MSImageViewer\trunk\PlugIns\imzMLIO\obj\Debug\Novartis.Msi.PlugIns.ImzMLIO.Strings.resources
+C:\Dev\MSImageViewer\trunk\PlugIns\imzMLIO\obj\Debug\imzMLIO.csproj.GenerateResource.Cache
+C:\Dev\MSImageViewer\trunk\PlugIns\imzMLIO\obj\Debug\imzMLIO.dll
+C:\Dev\MSImageViewer\trunk\PlugIns\imzMLIO\obj\Debug\imzMLIO.pdb

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Novartis.Msi.Core.RegionOfInterestDataSetView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Name="ROIDataView" 
+        Title="Region Of Interest Data Set View" Height="400" Width="550">
+
+      <Grid>
+        <ListView ItemsSource="{Binding ObservableRoiObjects, ElementName=ROIDataView}" IsSynchronizedWithCurrentItem="True" Margin="7,9,5,5" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="TextElement.FontSize" Value="12" />
+                    <Setter Property="TextElement.Foreground" Value="Black" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Region of Interest" Width="150" DisplayMemberBinding="{Binding Title}" />
+                        <GridViewColumn Header="Area" Width="080" DisplayMemberBinding="{Binding Area, StringFormat=0.0000}"/>
+                        <GridViewColumn Header="Mean Intensity" Width="130" DisplayMemberBinding="{Binding MeanIntensity}" />
+                        <GridViewColumn Header="Number of points in ROI" Width="150" DisplayMemberBinding="{Binding NumberOfPointsInsideRoi}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

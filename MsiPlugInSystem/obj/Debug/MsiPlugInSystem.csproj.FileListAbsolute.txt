@@ -1,0 +1,6 @@
+C:\Dev\MSImageViewer\trunk\MsiPlugInSystem\bin\Debug\MsiPlugInSystem.dll
+C:\Dev\MSImageViewer\trunk\MsiPlugInSystem\bin\Debug\MsiPlugInSystem.pdb
+C:\Dev\MSImageViewer\trunk\MsiPlugInSystem\bin\Debug\MsiPlugInSystem.XML
+C:\Dev\MSImageViewer\trunk\MsiPlugInSystem\obj\Debug\MsiPlugInSystem.csprojResolveAssemblyReference.cache
+C:\Dev\MSImageViewer\trunk\MsiPlugInSystem\obj\Debug\MsiPlugInSystem.dll
+C:\Dev\MSImageViewer\trunk\MsiPlugInSystem\obj\Debug\MsiPlugInSystem.pdb

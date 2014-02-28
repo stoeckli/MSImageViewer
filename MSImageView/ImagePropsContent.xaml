@@ -1,0 +1,50 @@
+﻿<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<!--                                                                                -->
+<!-- © 2012 Novartis AG. All rights reserved.                                       -->
+<!--                                                                                -->
+<!-- These coded instructions, statements and computer programs contain unpublished -->
+<!-- proprietary information of Novartis AG and are protected by federal  copyright -->
+<!-- law. They may not be disclosed to third parties or copied or duplicated in any -->
+<!-- form, in whole or in part, without the prior written consent of Novartis AG.   -->
+<!--                                                                                -->
+<!--                                                                                -->
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
+
+<ad:DockableContent x:Class="Novartis.Msi.MSImageView.ImagePropsContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ad="clr-namespace:AvalonDock;assembly=AvalonDock"
+             x:Name="imageProps" mc:Ignorable="d" Title="Image Properties" Background="White" DockableStyle="DockableToBorders" IsCloseable="False" >
+    <Grid x:Name="LayoutRoot">
+        <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="stackPanel">
+                <TextBlock Text="color map" Height="18" Margin="4,4,4,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <ComboBox Height="23" x:Name="cbImageRepresentation" Margin="4,4,4,4" SelectionChanged="CbImageRepresentationSelectionChanged" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Separator Width="240" Margin="4,4,4,4" HorizontalAlignment="Left" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock Text="Current Max. Intensity" Height="23" Margin="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    <TextBox Height="23" Name="maxIntensity" Margin="8,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Right" Width="100" TextChanged="MaxIntensityTextChanged" />
+                </StackPanel>
+                <Slider Height="23" x:Name="slMaxIntensity" Margin="4,4,4,4" ValueChanged="SlMaxIntensityValueChanged" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Separator Width="240" Margin="4,4,4,4" HorizontalAlignment="Left" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock Text="Current Min. Intensity" Height="23" Margin="4,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    <TextBox Height="23" Name="minIntensity" Margin="8,4,4,4" VerticalAlignment="Center" HorizontalAlignment="Right" Width="100" TextChanged="MinIntensityTextChanged" />
+                </StackPanel>
+                <Slider Height="23" x:Name="slMinIntensity" Margin="4,4,4,4" ValueChanged="SlMinIntensityValueChanged" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Separator Width="240" Margin="4,4,4,4" HorizontalAlignment="Left" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="186">
+                    <TextBlock Name="BrowseMassTB" Text="Browse Mass Range" Height="23" Margin="4,-140,4,4" FontWeight="Bold"/>
+                    <TextBlock Name="currMassRangeTB" Text="Current Mass [m/z]" Height="23" Margin="-115,-90,0,0" />
+                    <TextBox Name="currMass" Height="23" Margin="10,-90,2,4" Width="100" LostKeyboardFocus="CurrMassLostKeyboardFocus" KeyDown="CurrMassKeyDown" />
+                    <Slider Height="23" x:Name="slCurrMass" Margin="-230,-30,4,4" Width="240" ValueChanged="SlCurrScanNumberValueChanged" />
+                    <Label Name="MinMassLabel" Margin="-245,85,185,75" Content="Min [m/z]" />
+                    <Label Name="MaxMassLabel" Margin="-70,85,5,75" Content="Max [m/z]"/>
+                    <Button Content="Show Tic Image" Height="23" Name="ShowTICBtn" Width="95" Margin="-385,80,5,25" Click="ShowTicBtnClick"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</ad:DockableContent>

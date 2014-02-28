@@ -1,0 +1,3858 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MsiCore</name>
+    </assembly>
+    <members>
+        <member name="T:Novartis.Msi.Core.ApplicationEventHandler">
+            <summary>
+            A delegate type for document related notifications.
+            </summary>
+            <param name="sender">Sneder Object</param>
+            <param name="e">App Arguments</param>
+        </member>
+        <member name="T:Novartis.Msi.Core.AppContext">
+            <summary>
+            The <b>AppContext</b> class purpose is to hold global information
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.app">
+            <summary>
+            Application Interface
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.mainWindow">
+            <summary>
+            Main Window
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.appTitle">
+            <summary>
+            App Title
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.specFileLoaderList">
+            <summary>
+            File Loader List
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.plugInHost">
+            <summary>
+            plugIn Host
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.docList">
+            <summary>
+            Dcoument List
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.appExePath">
+            <summary>
+            App Exectuion Path
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.appExeDir">
+            <summary>
+            App Exectuion directory
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.appPlugInsDir">
+            <summary>
+            App Plugin Directroy
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.appArgs">
+            <summary>
+            Dictionary of App
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.docMan">
+            <summary>
+            Document Manager
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.palettes">
+            <summary>
+            Palettes or App
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.bitmapWriterList">
+            <summary>
+            bitmap writer List
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppContext.imagingWriterList">
+            <summary>
+            Image Writer List
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:Novartis.Msi.Core.AppContext"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Novartis.Msi.Core.AppContext"/> class from being created. 
+            Initializes a new instance of the AppContext class
+            Empty private constructor preventing the creation of instances of this class.
+            This class has solely static methods and properties.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.SetApplication(Novartis.Msi.Core.IApplication)">
+            <summary>
+            Sets the application this context belongs to.
+            </summary>
+            <param name="application">The application</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.Initialize(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Do the necessary initializations.
+            </summary>
+            <param name="argsDict">
+            The args Dict.
+            </param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.RegisterSpecFileLoader(Novartis.Msi.Core.ISpecFileLoader)">
+            <summary>
+            Register the given loader so that it is available as a choice in the fileopen dialog.
+            </summary>
+            <param name="loader">A <see cref="T:Novartis.Msi.Core.ISpecFileLoader"/> reference of the loader to be registered.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.RegisterBitmapWriter(Novartis.Msi.Core.IBitmapWriter)">
+            <summary>
+            Register the given bitmap writer so that it is available as a choice in the file save dialog.
+            </summary>
+            <param name="writer">A <see cref="T:Novartis.Msi.Core.IBitmapWriter"/> reference of the loader to be registered.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.RegisterImagingWriter(Novartis.Msi.Core.IImagingWriter)">
+            <summary>
+            Register a imaging writer instance (offered to the user as a choice)
+            </summary>
+            <param name="writer">Writer Object</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.CollectPlugIns">
+            <summary>
+            Calls <see cref="P:Novartis.Msi.Core.AppContext.PlugInHost"/>.CollectPlugIns().
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.InitializePlugIns">
+            <summary>
+            Calls <see cref="P:Novartis.Msi.Core.AppContext.PlugInHost"/>.InitializePlugIns().
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.FirePaletteIndexChanged(System.Int32)">
+            <summary>
+            Raise a event signaling that the palette index has changed.
+            </summary>
+            <param name="paletteIndex">palette Index</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.FireMinimumIntensityChanged(System.Double)">
+            <summary>
+            Raise a event signaling that the minimum intensity has changed.
+            </summary>
+            <param name="minIntensity">Minimum Intensity</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.FireMaximumIntensityChanged(System.Double)">
+            <summary>
+            Raise a event signaling that the maximum intensity has changed.
+            </summary>
+            <param name="maxIntensity">Maximum Intensity</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.FireScanNumberChanged(System.Double)">
+            <summary>
+            Raise a event signaling that the Scan Number has changed.
+            </summary>
+            <param name="massNumber">MassNumber to view</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.FireActiveViewChanged(Novartis.Msi.Core.IView)">
+            <summary>
+            Raise the event signaling that the currently active view has changed.
+            </summary>
+            <param name="newActiveView">The new active view as <see cref="T:Novartis.Msi.Core.IView"/> reference.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.FireViewClosed(Novartis.Msi.Core.IView)">
+            <summary>
+            Raise the event signaling that a view has been closed.
+            </summary>
+            <param name="closedView">The view that has been closed as a <see cref="T:Novartis.Msi.Core.IView"/> reference.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.SaveContext(Microsoft.Win32.RegistryKey)">
+            <summary>
+            Saves certain application data to persist it to the next session.
+            </summary>
+            <param name="applicationKey">The registry key where to save information.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.LoadContext(Microsoft.Win32.RegistryKey)">
+            <summary>
+            Loads certain application data saved from earlier sessions.
+            </summary>
+            <param name="applicationKey">The registry key where to look for data.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.ProgressStart(System.String)">
+            <summary>
+            Starts a progressbar action. The specified <paramref name="operation"/> identifier and the progressbar are shown and the
+            progressbar is made ready to receive values.
+            </summary>
+            <param name="operation">A identifier describing the current operation.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.ProgressSetValue(System.Double)">
+            <summary>
+            Sets the Progressbar to show the specified <paramref name="value"/>.
+            </summary>
+            <param name="value">The value to be shown in the progressbar. The range of values is expected to be 0.0 to 100.0</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.AppContext.ProgressClear">
+            <summary>
+            Stops the current progressbar action. Clears and hides the progressbar.
+            </summary>
+        </member>
+        <member name="E:Novartis.Msi.Core.AppContext.PropertyChanged">
+            <summary>
+            This event will be fired and the subscribers notified, when the user changes the value
+            for the image representation via the GUI.
+            </summary>
+        </member>
+        <member name="E:Novartis.Msi.Core.AppContext.ActiveViewChanged">
+            <summary>
+            This event will be fired when the currently active view changes.
+            </summary>
+        </member>
+        <member name="E:Novartis.Msi.Core.AppContext.ViewClosed">
+            <summary>
+            This event will be fired when a view is closed.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.MainWindow">
+            <summary>
+            Gets or sets this application's main window.
+            </summary>
+            <exception cref="T:System.InvalidOperationException"> Trying to set a already assigned MainWindow. </exception>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.Application">
+            <summary>
+            Gets the application this context belongs to.
+            </summary>
+            <value>
+            A <see cref="T:Novartis.Msi.Core.IApplication"/> reference.
+            </value>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.ApplicationTitle">
+            <summary>
+            Gets the title of the application.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.DocumentList">
+            <summary>
+            Gets the list of documents this application maintains.
+            </summary>
+            <value>
+            A <see cref="P:Novartis.Msi.Core.AppContext.DocumentList"/> reference containing this application's documents.
+            </value>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.AppExeDir">
+            <summary>
+            Gets the directory where the applications executable is located.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.AppPlugInsDir">
+            <summary>
+            Gets the directory where the applications plugins are located.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.AppArgs">
+            <summary>
+            Gets the arguments of the application as dictionary.
+            See <see cref="M:Novartis.Msi.Core.Util.ParseCommandLine(System.String[])"/> for more information.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.SpecFileLoaders">
+            <summary>
+            Gets the list of registered loaders for spec file contents.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.BitmapWriters">
+            <summary>
+            Gets the list of registered writers for bitmap content
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.ImagingWriters">
+            <summary>
+            Gets the list of registered writers for imaging data
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.DocManager">
+            <summary>
+            Gets the application's document management facility.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.ShowToolTips">
+            <summary>
+            Gets or sets a value indicating whether tooltips should be shown.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.Palettes">
+            <summary>
+            Gets the <see cref="P:Novartis.Msi.Core.AppContext.Palettes"/> available in this application.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.UseApproximation">
+            <summary>
+            Gets or sets a value indicating whether approximation algorithm be used when importing wiff-files
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.BatchMode">
+            <summary>
+            Gets or sets a value indicating whether the application is running in batch mode (no UI)
+            </summary>
+            <value><see langword="bool"/></value>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.StatusInfo">
+            <summary>
+            Gets or sets the text displayed in the statusbar info item of the application.
+            </summary>
+            <value><see langword="string"/></value>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.StatusCoord">
+            <summary>
+            Gets or sets the text displayed in the statusbar coordinate item of the application.
+            </summary>
+            <value>A <see langword="string"/> value.</value>
+            <remarks>
+            The text-string usually contains the formatted coordinate-values including units.
+            E.g. 'x: 123.4 mm y: 567.8 mm'
+            </remarks>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.StatusIntensity">
+            <summary>
+            Gets or sets the text displayed in the statusbar intensity item of the application.
+            </summary>
+            <value>A <see langword="string"/> value.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.ActiveView">
+            <summary>
+            Gets the currently active view of the application.
+            </summary>
+            <value>The current view as <see cref="T:Novartis.Msi.Core.IView"/> reference. <see langword="null"/> if no view exists.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.AppContext.PlugInHost">
+            <summary>
+            Gets the PlugIn hosting instance of the application
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.ApplicationEventArgs">
+            <summary>
+            <see cref="T:System.EventArgs"/>-derived class to describe changes to global propery.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ApplicationEventArgs.property">
+            <summary>
+            App Properties
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ApplicationEventArgs.propertyValue">
+            <summary>
+            Property Value
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ApplicationEventArgs.#ctor(Novartis.Msi.Core.AppProperties,System.Object)">
+            <summary>
+            Initializes a new instance of the ApplicationEventArgs class 
+            </summary>
+            <param name="property">The property that has changed.</param>
+            <param name="propertyValue">The new value of the property as an <see cref="T:System.Object"/>.</param>
+        </member>
+        <member name="P:Novartis.Msi.Core.ApplicationEventArgs.Property">
+            <summary>
+            Gets the name of the property that has changed.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ApplicationEventArgs.PropertyValue">
+            <summary>
+            Gets the new value of the property as an <see cref="T:System.Object"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Novartis.Msi.Core.AppProperties">
+            <summary>
+            Enumeration of the applications properties.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppProperties.PaletteIndex">
+            <summary>
+            Palette Index
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppProperties.MinIntensity">
+            <summary>
+            Minimum Intensity
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppProperties.MaxIntensity">
+            <summary>
+            Maximum Intensity
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.AppProperties.CurrentMass">
+            <summary>
+            Current Mass 
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.BaseObject">
+            <summary>
+            Mandatory base class for all document objects.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BaseObject.guid">
+            <summary>
+            The object's globally unique identifier.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BaseObject.document">
+            <summary>
+            The <see cref="T:Novartis.Msi.Core.Document"/> this object belongs to.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BaseObject.selected">
+            <summary>
+            Indicates whether the object is selected or not.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.BaseObject.#ctor(Novartis.Msi.Core.Document)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.BaseObject"/> class 
+            A new <see cref="T:System.Guid"/> is assigned to the object.
+            </summary>
+            <param name="doc">
+            The <see cref="T:Novartis.Msi.Core.Document"/> this object belongs to.
+            </param>
+        </member>
+        <member name="M:Novartis.Msi.Core.BaseObject.Select(Novartis.Msi.Core.ViewController)">
+            <summary>
+            Select this object and adjust the drawing state in the given view controller.
+            </summary>
+            <param name="viewCtrl"><see cref="T:Novartis.Msi.Core.ViewController"/>-instance in which the
+            drawing state will be updated.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.BaseObject.Deselect(Novartis.Msi.Core.ViewController)">
+            <summary>
+            Select this object and adjust the drawing state in the given view controller.
+            </summary>
+            <param name="viewCtrl"><see cref="T:Novartis.Msi.Core.ViewController"/>-instance in which the
+            drawing state will be updated.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.BaseObject.InsertImageRep(Novartis.Msi.Core.ViewImageController)">
+            <summary>
+            Inserts this object's image-representation in a image-view.
+            </summary>
+            <param name="viewCtrl">
+            ViewController in which the image-representation is to be inserted.
+            </param>
+        </member>
+        <member name="M:Novartis.Msi.Core.BaseObject.RemoveRepresentation(Novartis.Msi.Core.ViewController)">
+            <summary>
+            Removes this object's representation from a view.
+            </summary>
+            <param name="viewCtrl">
+            ViewController from which the representation is to be removed.
+            </param>
+        </member>
+        <member name="M:Novartis.Msi.Core.BaseObject.GetToolTip">
+            <summary>
+            Returns a <see cref="T:System.Object"/>-instance that describes this object.
+            </summary>
+            <returns>A <see cref="T:System.Object"/>-instance as object-reference.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.BaseObject.ToolTipOpening(System.Object,System.Windows.Controls.ToolTipEventArgs)">
+            <summary>
+            React on a ToolTipOpening event associated with this object.
+            </summary>
+            <param name="sender"><see cref="T:System.Object"/>-reference to the sender of this event.</param>
+            <param name="e"><see cref="T:System.Windows.Controls.ToolTipEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="P:Novartis.Msi.Core.BaseObject.IsSelected">
+            <summary>
+            Gets or sets a value indicating whether Object is selected
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.BaseObject.ObjectGuid">
+            <summary>
+            Gets this object's globaly unique identifier.
+            </summary>
+            <value>A <see cref="T:System.Guid"/>-value.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.BaseObject.ObjectDocument">
+            <summary>
+            Gets or sets the document this object belongs to.
+            </summary>
+            <value>
+            A <see cref="T:Novartis.Msi.Core.Document"/> reference.
+            </value>
+        </member>
+        <member name="T:Novartis.Msi.Core.BaseObjectList">
+            <summary>
+            A list of <see cref="T:Novartis.Msi.Core.BaseObject"/>s.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.BitmapSourceList">
+            <summary>
+            List of <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> instances.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.BitmapSourceList.AddRange(System.Collections.Generic.IEnumerable{System.Windows.Media.Imaging.BitmapSource})">
+            <summary>
+            Adds the elements of the specified collection to the end of this list.
+            </summary>
+            <param name="collection">Type: <see cref="T:System.Collections.Generic.IEnumerable`1"/>
+            The collection whose elements should be added to the end of this list.
+            The collection itself cannot be null, but it can contain elements that are null</param>
+        </member>
+        <member name="T:Novartis.Msi.Core.BitmapWriter">
+            <summary>
+            Writes bitmaps to file or stream.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.IBitmapWriter">
+            <summary>
+            Interface for all bitmap writers.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.IWriter">
+            <summary>
+            Interface for all writers.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.IWriter.Name">
+            <summary>
+            Gets the name of this writer.
+            </summary>
+            <remarks>
+            every writer should have a unique name.
+            </remarks>
+        </member>
+        <member name="P:Novartis.Msi.Core.IWriter.SupportedFileTypes">
+            <summary>
+            Gets a list of supported file types.
+            </summary>
+            <remarks>
+            Gets Retrieves a list of <see cref="T:Novartis.Msi.Core.FileTypeDescriptor"/>s.
+            </remarks> 
+        </member>
+        <member name="M:Novartis.Msi.Core.IBitmapWriter.Write(System.Windows.Media.Imaging.BitmapSource,System.String,System.Boolean)">
+            <summary>
+            Writes the bimap data specified by the given <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> object
+            to a file specified by the file name.
+            </summary>
+            <param name="bitmap">The bitmap data to be written to file.</param>
+            <param name="fileName">The file to which the bitmap data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.IBitmapWriter.Write(System.Windows.Media.Imaging.BitmapSource,System.IO.Stream,System.Boolean)">
+            <summary>
+            Writes the bimap data specified by the given <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> object
+            to the given stream.
+            </summary>
+            <param name="bitmap">The bitmap data to be written to stream.</param>
+            <param name="outStream">The stream to which the bitmap data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="F:Novartis.Msi.Core.BitmapWriter.supportedFileTypes">
+            <summary>
+            Supported file types.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.BitmapWriter.#ctor">
+            <summary>
+            Initializes a new instance of the BitmapWriter class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.BitmapWriter.Write(System.Windows.Media.Imaging.BitmapSource,System.String,System.Boolean)">
+            <summary>
+            Writes the bimap data specified by the given <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> object
+            to a file specified by the file name.
+            </summary>
+            <param name="bitmap">The bitmap data to be written to file.</param>
+            <param name="fileName">The file to which the bitmap data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.BitmapWriter.Write(System.Windows.Media.Imaging.BitmapSource,System.IO.Stream,System.Boolean)">
+            <summary>
+            Writes the bimap data specified by the given <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> object
+            to the given stream.
+            </summary>
+            <param name="bitmap">The bitmap data to be written to stream.</param>
+            <param name="outStream">The stream to which the bitmap data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="P:Novartis.Msi.Core.BitmapWriter.Name">
+            <summary>
+            Gets the name of this writer.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.BitmapWriter.SupportedFileTypes">
+            <summary>
+            Gets the list of supported file types.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.ExperimentType">
+            <summary>
+            Defining ExperimentType here as we need to differentiate between experiment types
+            for UI purposes. 
+            There is also a definition in WiffLoader (which we must keep in sync with)
+            But since WiffLoader is a plugin, we don't want to reply on definitions with in that module.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ExperimentType.MS">
+            <summary>
+            MS Type Experiment
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ExperimentType.Product">
+            <summary>
+            Product Type Experiment
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ExperimentType.Precursor">
+            <summary>
+            Precursor Type Experiment
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ExperimentType.NeutralGainOrLoss">
+            <summary>
+            Neutral Gain Or Loss Type Experiment
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ExperimentType.SIM">
+            <summary>
+            SIM Type Experiment
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ExperimentType.MRM">
+            <summary>
+            MRM Type Experiment
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.IntensitySettings">
+            <summary>
+            Data describing  a intensity in a way suitable to
+            setup a slider control.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensitySettings.CurrentIntensity">
+            <summary>
+            The current intensity.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensitySettings.MinIntensity">
+            <summary>
+            The minimum intensity.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensitySettings.MaxIntensity">
+            <summary>
+            The maximum intensity.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensitySettings.StepSmall">
+            <summary>
+            The step width.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensitySettings.StepLarge">
+            <summary>
+            The large step width.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.PixelPointInt">
+            <summary>
+            Pixel Point in Double, Used in various views 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.PixelPointInt.X">
+            <summary>
+            X Position
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.PixelPointInt.Y">
+            <summary>
+            X Position
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.PixelPointDbl">
+            <summary>
+            Pixel Point in Double
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.PixelPointDbl.X">
+            <summary>
+            X Position
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.PixelPointDbl.Y">
+            <summary>
+            X Position
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.FilterEntry">
+            <summary>
+            A entry in the collections of filter of the common dialog.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.FilterEntry.fileType">
+            <summary>
+            File Type
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.FilterEntry.extension">
+            <summary>
+            File Extension
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.FilterEntry.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.FilterEntry"/> class.
+            Constructor. Instantiates a filter object and initializes the instance with the
+            given parameters.
+            </summary>
+            <param name="fileType">Descriptive string specifying the filetyp of the filter.</param>
+            <param name="extension">The file extension this filter applies to. </param>
+        </member>
+        <member name="P:Novartis.Msi.Core.FilterEntry.FileType">
+            <summary>
+            Gets the displayed string describing the filetyp this filter belongs to.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.FilterEntry.Extension">
+            <summary>
+            Gets the file extension this filter belongs to.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.IBitmapSource">
+            <summary>
+            The implementing object can be used as a source for bitmap
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.IBitmapSource.GetBitmap">
+            <summary>
+            Return the <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> object representing the object implementing this interface.
+            </summary>
+            <returns>The <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> object.</returns>
+        </member>
+        <member name="T:Novartis.Msi.Core.IImagingSource">
+            <summary>
+            The implementing object can be used as a source for imaging data (<see cref="T:Novartis.Msi.Core.Imaging"/>).
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.IImagingSource.GetImagingData">
+            <summary>
+            Return the <see cref="T:Novartis.Msi.Core.Imaging"/> object representing the object implementing this interface.
+            </summary>
+            <returns>The <see cref="T:Novartis.Msi.Core.Imaging"/> object.</returns>
+        </member>
+        <member name="T:Novartis.Msi.Core.IImagingWriter">
+            <summary>
+            Common interface for instances suitable to save
+            <see cref="T:Novartis.Msi.Core.Imaging"/> instances to a persistent state in a specific
+            file format.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.IImagingWriter.Write(Novartis.Msi.Core.Imaging,System.String,System.Boolean)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.Imaging"/> object
+            to a file specified by the file name.
+            </summary>
+            <param name="imagingData">The image data to be written to file.</param>
+            <param name="fileName">The file to which the bitmap data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.IImagingWriter.Write(Novartis.Msi.Core.Imaging,System.IO.Stream,System.Boolean)">
+            <summary>
+            Writes the imaging data specified by the given <see cref="T:Novartis.Msi.Core.Imaging"/> object
+            to the given stream.
+            </summary>
+            <param name="imagingData">The image data to be written to file.</param>
+            <param name="outStream">The stream to which the bitmap data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="T:Novartis.Msi.Core.ImageMetaData">
+            <summary>
+            ImageMetaData Class Definition
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageMetaData.MetaDataTemplates">
+            <summary>
+            Metadata Templates
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageMetaData.Templates">
+            <summary>
+            List of Meta Data Items
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageMetaData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.ImageMetaData"/> class.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageMetaData.LoadMetaData(System.String)">
+            <summary>
+            Load meta data from a file.
+            </summary>
+            <param name="metaDataFile">The file from which to read the metadata.</param>
+            <returns>A list of <see cref="T:Novartis.Msi.Core.MetaDataItem"/> List of instances</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageMetaData.Add(System.String,System.Type,System.Object,System.Boolean)">
+            <summary>
+            Creates a new metadata item with the given properties and adds it to this list.
+            </summary>
+            <param name="itemName">Item Name</param>
+            <param name="itemType">Item Type</param>
+            <param name="itemValue">Item Value</param>
+            <param name="itemMutable">Item Mutable Flag</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageMetaData.SaveToXml(System.String)">
+            <summary>
+            Write the content of this meta data instance to the specified <paramref name="xmlFile"/> in XML format.
+            </summary>
+            <param name="xmlFile">A <see cref="T:System.String"/> containing the (full) file name of the file to which to write this instance data.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageMetaData.ReadFromXml(System.String)">
+            <summary>
+            Read meta data from the specified <paramref name="xmlFile"/> and add the meta data items to this instance.
+            </summary>
+            <param name="xmlFile">A <see cref="T:System.String"/> containing the (full) file name of the file to which to write this instance data.</param>
+        </member>
+        <member name="T:Novartis.Msi.Core.ImageSpectrumData">
+            <summary>
+            Image Spectrum Data Class
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.Imaging">
+            <summary>
+            Common baseclass of Image related baseobjects
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.IViewObject">
+            <summary>
+            The object a view is presenting in some kind.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Imaging.name">
+            <summary>
+            Image Name
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Imaging.metaData">
+            <summary>
+            Image Meta Data
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Imaging.paletteIndex">
+            <summary>
+            Palette Index
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Imaging.masscal">
+            <summary>
+            Mass Calibration
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Imaging.dirty">
+            <summary>
+            indicating if the object has been modified.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.Imaging.#ctor(Novartis.Msi.Core.Document,System.String,Novartis.Msi.Core.ImageMetaData,System.Single[],Novartis.Msi.Core.ExperimentType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.Imaging"/> class 
+            </summary>
+            <param name="doc">The <see cref="T:Novartis.Msi.Core.Document"/> this object belongs to.</param>
+            <param name="name">The name of this instance.</param>
+            <param name="metaData">The instances metaData.</param>
+            <param name="massCal">Mass Calibration</param>
+            <param name="exptype">Experiment Type</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.Imaging.GetBitmaps">
+            <summary>
+            Gets the Bitmaps
+            </summary>
+            <returns>return a list of Bitmaps</returns>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.Name">
+            <summary>
+            Gets the Name of the Image
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.MetaData">
+            <summary>
+            Gets the metaData
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.PaletteIndex">
+            <summary>
+            Gets or sets the Palette index in the list of the BitmapPalette which is used.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.XPoints">
+            <summary>
+            Gets the number of data points in x direction
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.YPoints">
+            <summary>
+            Gets the number of data points in y direction
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.IntensityDelta">
+            <summary>
+            Gets The increment / decrement value for the intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.CurrentMaxIntensity">
+            <summary>
+            Gets or sets the current value for the maximum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.CurrentMinIntensity">
+            <summary>
+            Gets or sets the current value for the minimum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.MaxIntensity">
+            <summary>
+            Gets the value for the maximum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.MinIntensity">
+            <summary>
+            Gets the value for the minimum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.ImageMaxIntensity">
+            <summary>
+            Gets or sets the value for the maximum intensity in the image.
+            </summary>
+            <remarks>This value may be larger than the maximum intensity from the device data.</remarks>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.Dx">
+            <summary>
+            Gets the x-extend of one pixel in mm.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.Dy">
+            <summary>
+            Gets the the y-extend of one pixel in mm.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.ExperimentType">
+            <summary>
+            Gets or sets the viewexperimenttype
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.MassCal">
+            <summary>
+            Gets the Mass Calibration array
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Imaging.Dirty">
+            <summary>
+            Gets or sets the value for the dirty flag
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageSpectrumData.imageDataList">
+            <summary>
+            The list of <see cref="T:Novartis.Msi.Core.ImageData"/> objects which this spectrum is composed of.
+            The count of elements in this list equates to the number of m/z measures for each point of image
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageSpectrumData.currentImage">
+            <summary>
+            References the currentImage of this spectrum. This variable refers to the visualization.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageSpectrumData.imageTic">
+            <summary>
+            The TIC image of this spectrum measurement
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageSpectrumData.masscal">
+            <summary>
+            Mass Calibration
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageSpectrumData.#ctor(Novartis.Msi.Core.Document,System.String,Novartis.Msi.Core.ImageMetaData,System.Single[],System.Collections.Generic.List{Novartis.Msi.Core.ImageData},Novartis.Msi.Core.ExperimentType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.ImageSpectrumData"/> class 
+            </summary>
+            <param name="doc">
+            The <see cref="T:Novartis.Msi.Core.Document"/> this object belongs to.
+            </param>
+            <param name="name">Image Spec Name</param>
+            <param name="metaData">Meta Data</param>
+            <param name="massCal">Mass Cal</param>
+            <param name="imageDataList">List of ImageData Objects</param>
+            <param name="experimenttype">Experiment Type</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageSpectrumData.InsertImageRep(Novartis.Msi.Core.ViewImageController)">
+            <summary>
+            Inserts this object's image-representation in a image-view.
+            </summary>
+            <param name="viewCtrl">
+            ViewController in which the image-representation is to be inserted.
+            </param>
+            <exception cref="T:System.NotImplementedException">Insert Image Rep</exception>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageSpectrumData.Add(Novartis.Msi.Core.ImageData)">
+            <summary>
+            Add one image data object to this spectrum data object.
+            </summary>
+            <param name="imageData">Image Data Object</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageSpectrumData.GetBitmaps">
+            <summary>
+            Gets the list of all bitmaps from this spectrum image data object.
+            </summary>
+            <returns>A BitmapSourceList containing the bitmaps.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageSpectrumData.GetBitmapsForAllScans">
+            <summary>
+            This routine generates all the bitmaps for the ImageData Objects in the imageDataList
+            This routine should only be called for MS scans and only once.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.DataSets">
+            <summary>
+            Gets the list of <see cref="T:Novartis.Msi.Core.ImageData"/> objects which this spectrum is composed of.
+            The count of elements in this list equates to the number of m/z measures for each point of image
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.ImageTic">
+            <summary>
+            Gets or sets the references the currentImage of this spectrum. This variable refers to the visualization.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.CurrentImage">
+            <summary>
+            Gets or sets the current Image
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.NumOfMassPoints">
+            <summary>
+            Gets or sets the number of Masses in MS Scan
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.XPoints">
+            <summary>
+            Gets the number of data points in x direction
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.YPoints">
+            <summary>
+            Gets the number of data points in y direction
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.IntensityDelta">
+            <summary>
+            Gets the increment / decrement value for the intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.CurrentMaxIntensity">
+            <summary>
+            Gets the current value for the maximum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.CurrentMinIntensity">
+            <summary>
+            Gets the current value for the minimum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.MaxIntensity">
+            <summary>
+            Gets the value for the maximum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.MinIntensity">
+            <summary>
+            Gets the value for the minimum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.ImageMaxIntensity">
+            <summary>
+            The value for the maximum intensity in the image.
+            </summary>
+            <remarks>This value may be larger than the maximum intensity from the device data.</remarks>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.PaletteIndex">
+            <summary>
+            The index in the <see cref="T:Novartis.Msi.Core.Palettes"/> list of the BitmapPalette which is used.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.Dx">
+            <summary>
+            Extent in x direction.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.Dy">
+            <summary>
+            Extent in y direction.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageSpectrumData.MassCal">
+            <summary>
+            Gets or sets the Mass Calibration array
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.CommonDialog">
+            <summary>
+            Wraps the Vista-Style common Open- and SaveAs-Dialogs
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.CommonDialog.ofn">
+            <summary>
+            Structure used when displaying Open and SaveAs dialogs 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.CommonDialog.filters">
+            <summary>
+            List of filters to display in the dialog. 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.CommonDialog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.CommonDialog"/> class.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.CommonDialog.ShowOpen">
+            <summary>
+            Display the Vista-style common Open dialog.
+            </summary>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.CommonDialog.ShowSaveAs">
+            <summary>
+            Display the Vista-style common Save As dialog.
+            </summary>
+            <returns> True or False</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.CommonDialog.SetFilters">
+            <summary>
+            Applies the filter-entries in filters to the filter property of the common dialog.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.CommonDialog.Filters">
+            <summary>
+            Gets the list of filers assigned to this CommonDialog-object.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.CommonDialog.Title">
+            <summary>
+            Gets or sets the title of this CommonDialog-object.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.CommonDialog.InitialDirectory">
+            <summary>
+            Gets or sets the initial directory to look for files.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.CommonDialog.DefaultExtension">
+            <summary>
+            Gets or sets the default extension (filter).
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.CommonDialog.FileName">
+            <summary>
+            Gets or sets (proposal) the filename of the file selected by this CommonDialog.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.CommonDialog.FilterIndex">
+            <summary>
+            Gets or sets the index of the filter selected for the file operation.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.CommonDialog.OpenFileNameFlags">
+            <summary>
+            Enum for OpenFileNameFlags
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.CommonDialog.NativeMethods">
+            <summary>
+            NativeMethods Class
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.CommonDialog.OpenFileName">
+            <summary>
+            Open File Name Class
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.Document">
+            <summary>
+            A document.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Document.docGuid">
+            <summary>
+            The document's globally unique identifier.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Document.viewCollection">
+            <summary>
+            List of <see cref="T:Novartis.Msi.Core.IView"/>-references representing the views of this
+            document.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Document.viewControllerList">
+            <summary>
+            The list of <see cref="T:Novartis.Msi.Core.ViewController"/>-objects connecting this document with
+            the views of this document.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Document.docObjects">
+            <summary>
+            List of <see cref="T:Novartis.Msi.Core.BaseObject"/>s this document holds.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Document.selectedObjects">
+            <summary>
+            List of currently selected <see cref="T:Novartis.Msi.Core.BaseObject"/>s .
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Document.fileName">
+            <summary>
+            A name of the file this document was loaded from.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Document.docName">
+            <summary>
+            A <see langword="string"/> representing the document's name.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Document.docContent">
+            <summary>
+            The documents content.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.Document.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.Document"/> class
+            </summary>
+            <remarks>
+            Creates a new document.
+            </remarks>
+        </member>
+        <member name="M:Novartis.Msi.Core.Document.OnViewClosed(Novartis.Msi.Core.IView,System.EventArgs)">
+            <summary>
+            React on the event that a view has been closed
+            </summary>
+            <param name="sender">The view that has been closed.</param>
+            <param name="e">The event's arguments.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.Document.SelectObject(Novartis.Msi.Core.BaseObject,System.Boolean)">
+            <summary>
+            Add the given <paramref name="baseObject"/> to the selection list and tell the
+            view controllers to redraw it.
+            </summary>
+            <param name="baseObject"><see cref="T:Novartis.Msi.Core.BaseObject"/> to select.</param>
+            <param name="deselectCurrent"><see langword="bool"/> indicating if the existing
+            selection is to be cancelled.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.Document.SelectObjects(Novartis.Msi.Core.BaseObjectList,System.Boolean)">
+            <summary>
+            Add the given <paramref name="baseObjects"/> to the selection list and tell the
+            view controllers to redraw it.
+            </summary>
+            <param name="baseObjects"><see cref="T:Novartis.Msi.Core.BaseObjectList"/> holding the objects to
+            select.</param>
+            <param name="deselectCurrent"><see langword="bool"/> indicating if the existing
+            selection is to be cancelled.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.Document.FindByObjectId(System.Guid)">
+            <summary>
+            Searches and returns the <see cref="T:Novartis.Msi.Core.BaseObject"/> matching the given
+            <paramref name="objectId"/> or null if no such object is found.
+            </summary>
+            <param name="objectId">A <see cref="T:System.Guid"/>-value as object identifier.
+            </param>
+            <returns>A <see cref="T:Novartis.Msi.Core.BaseObject"/>-reference if the objects is found,
+            <see langword="null"/> otherwise.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Document.Insert(Novartis.Msi.Core.BaseObject)">
+            <summary>
+            Inserts the given <paramref name="baseObject"/> into this document.
+            </summary>
+            <param name="baseObject">
+            A <see cref="T:Novartis.Msi.Core.BaseObject"/> reference of the object to be inserted.
+            </param>
+        </member>
+        <member name="P:Novartis.Msi.Core.Document.Content">
+            <summary>
+            Gets or sets the content of this document.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Document.DocumentGuid">
+            <summary>
+            Gets this document's globaly unique identifier.
+            </summary>
+            <value>A <see cref="T:System.Guid"/> value.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.Document.FileName">
+            <summary>
+            Gets or sets the name of the file this document was loaded from.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Document.DocumentName">
+            <summary>
+            Gets or sets the name of this document.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Document.ViewCollection">
+            <summary>
+            Gets the list of references representing the views of this document.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Document.ViewControllerList">
+            <summary>
+            Gets the list of <see cref="T:Novartis.Msi.Core.ViewController"/>-objects connecting this document with
+            the views of this document.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Document.BaseObjects">
+            <summary>
+            Gets the list of <see cref="T:Novartis.Msi.Core.BaseObject"/>s contained in this document.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Document.SelectedObjects">
+            <summary>
+            Gets the list of currently selected <see cref="T:Novartis.Msi.Core.BaseObject"/>s in this document.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.DocumentList">
+            <summary>
+            A list of <see cref="T:Novartis.Msi.Core.Document"/> objects.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.DocumentManager">
+            <summary>
+            This class facilitates document handling.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.DocumentManager.OpenDocument(System.String)">
+            <summary>
+            Opens the document specified by the given <paramref name="fileName"/>
+            </summary>
+            <param name="fileName">The document to be opened.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the attempt to open a document.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.DocumentManager.OpenDocument">
+            <summary>
+            Opens a document. A fileopen dialog is brought up.
+            </summary>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the attempt to open a document.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.DocumentManager.DocumentSaveAs">
+            <summary>
+             Saves the current document to hard disk
+            </summary>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.DocumentManager.BatchProcess(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Load and convert the file specified by <paramref name="fileName"/> to the format specified by <paramref name="targetExt"/>
+            and/or create a bitmap of the file. The bitmap format is defined by <paramref name="bitmapExt"/>. The result will be stored
+            in the directory given by <paramref name="targetDir"/>. 
+            </summary>
+            <param name="fileName">The full qualified filename of the file to process.</param>
+            <param name="targetDir">The directory where the results should be stored.</param>
+            <param name="targetExt">The target format to which to convert the given file. If empty, no conversion takes place.</param>
+            <param name="bitmapExt">If not empty a bitmap of the type specified by this extension is created from the files (image) content.</param>
+            <param name="bitmapDir">Specifies an additional directory where a copy of the bitmap (if any) should be created.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.DocumentManager.OpenDocument(System.Collections.Generic.List{Novartis.Msi.Core.RegionOfInterest})">
+            <summary>
+            This Open document is when you're in the main window and you have an open roiProject
+            </summary>
+            <param name="roiObjects">List of RegionOfInterest Object</param>
+            <returns>value indicating the success of the attempt to open a document</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.DocumentManager.OpenDocument(System.String,System.Collections.Generic.List{Novartis.Msi.Core.RegionOfInterest})">
+            <summary>
+            A new version of OpenDocument that allows views to be opened via the ROI Project UI
+            it includes a list of ROI objects associated to this view
+            </summary>
+            <param name="fileName">File name/path of file containing the image</param>
+            <param name="roiObjects">List of RegionOfInterest Object</param>
+            <returns>value indicating the success of the attempt to open a document</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.DocumentManager.OpenDocument(System.String,Novartis.Msi.Core.ISpecFileLoader,System.Collections.Generic.List{Novartis.Msi.Core.RegionOfInterest})">
+            <summary>
+            Overloaded Opens the document specified by the given <paramref name="fileName"/>
+            and uses the specified  <paramref name="loader"/>.
+            </summary>
+            <param name="fileName">The document to be opened.</param>
+            <param name="loader">The loader associated with the file type.</param>
+            <param name="roiObjects">list of RegionOfInterest to add to the ImageView</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the attempt to open a document.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.DocumentManager.OpenDocument(System.String,Novartis.Msi.Core.ISpecFileLoader)">
+            <summary>
+            Opens the document specified by the given <paramref name="fileName"/>
+            and uses the specified  <paramref name="loader"/>.
+            </summary>
+            <param name="fileName">The document to be opened.</param>
+            <param name="loader">The loader associated with the file type.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the attempt to open a document.</returns>
+        </member>
+        <member name="T:Novartis.Msi.Core.FileTypeDescriptor">
+            <summary>
+            This class describes file types and provides filters for the file handling dialogs.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.FileTypeDescriptor.description">
+            <summary>
+            Description Field
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.FileTypeDescriptor.extensions">
+            <summary>
+            List of extensions
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.FileTypeDescriptor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.FileTypeDescriptor"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.FileTypeDescriptor.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.FileTypeDescriptor"/> class
+            Constructor receiving a description and an extension.
+            </summary>
+            <param name="description">The file type's description.</param>
+            <param name="extension">The file type's extension.<br/>All extensions
+            should have a leading point (eg. ".bmp") but are not case-sensitive.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.FileTypeDescriptor.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.FileTypeDescriptor"/> class 
+            Constructor receiving a description and the number of extensions
+            being associated to the file type.
+            </summary>
+            <param name="description">The file type's description.</param>
+            <param name="extensionCount">The number of extensions being associated
+            to the file type.<br/>All extensions should have a leading point
+            (eg. ".bmp") but are not case-sensitive.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.FileTypeDescriptor.IncludesExtension(System.String)">
+            <summary>
+            Retrieves whether this description includes the given extension.
+            </summary>
+            <param name="extension">The extension to be checked.</param>
+            <returns>If the extension is supported <see langword="true"/>, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.FileTypeDescriptor.ComposeFileDialogFilterText">
+            <summary>
+            Composes a formated string to be used within a file dialog filter combo.
+            </summary>
+            <returns>
+            A new string object.<br/>
+            <example>"All supported formats (*.exe,*.dll)</example>
+            </returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.FileTypeDescriptor.GetFileDialogFilter">
+            <summary>
+            Composes a string suitable for common file dialogs containing the
+            description of the file type and its extensions.
+            </summary>
+            <returns>
+            A new string object.<br/>
+            <example>"Jpeg Files|*.jpg;*.jpeg"</example>
+            </returns>
+        </member>
+        <member name="P:Novartis.Msi.Core.FileTypeDescriptor.Description">
+            <summary>
+            Gets the description of this file type.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.FileTypeDescriptor.DefaultExtension">
+            <summary>
+            Gets the default extension of this file type.
+            </summary>
+            <remarks>This implementation returns the first element of the
+            extensions list as default extension.</remarks>
+        </member>
+        <member name="P:Novartis.Msi.Core.FileTypeDescriptor.Extensions">
+            <summary>
+            Gets valid extensions of this file type.
+            </summary>
+            <remarks>
+            All extensions should have a leading point (eg. ".bmp") but are not case-sensitive.
+            </remarks>
+        </member>
+        <member name="T:Novartis.Msi.Core.FileTypeDescriptorList">
+            <summary>
+            A list of <see cref="T:Novartis.Msi.Core.FileTypeDescriptor"/> objects.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.FileTypeDescriptorList.IncludesExtension(System.String)">
+            <summary>
+            Check whether ths given extension is included in any of the contained
+            <see cref="T:Novartis.Msi.Core.FileTypeDescriptor"/>s. 
+            </summary>
+            <param name="extension">The extension for which to look as a <see cref="T:System.String"/>.</param>
+            <returns>A <see cref="T:System.Boolean"/> value signaling if the given <paramref name="extension"/> is included.</returns>
+        </member>
+        <member name="T:Novartis.Msi.Core.IApplication">
+            <summary>
+            Interface implemented by MainWindow to expose some functionality to external entities.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.IApplication.AddView(Novartis.Msi.Core.IView)">
+            <summary>
+            Adds the given view to the mdi gui.
+            </summary>
+            <param name="view">The view to be added as a <see cref="T:Novartis.Msi.Core.IView"/> reference.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.IApplication.RemoveView(Novartis.Msi.Core.IView)">
+            <summary>
+            Removes the given view from the mdi gui.
+            </summary>
+            <param name="view">The view to be removed as a <see cref="T:Novartis.Msi.Core.IView"/> reference.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.IApplication.CloseView(Novartis.Msi.Core.IView)">
+            <summary>
+            Removes the given view from the mdi gui and closes it.
+            </summary>
+            <param name="view">The view to be removed as a <see cref="T:Novartis.Msi.Core.IView"/> reference.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.IApplication.ProgressStart(System.String)">
+            <summary>
+            Starts a progressbar action. The specified <paramref name="operation"/> identifier and the progressbar are shown and the
+            progressbar is made ready to receive values.
+            </summary>
+            <param name="operation">A identifier describing the current operation.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.IApplication.ProgressSetValue(System.Double)">
+            <summary>
+            Sets the Progressbar to show the specified <paramref name="value"/>.
+            </summary>
+            <param name="value">The value to be shown in the progressbar. The range of values is expected to be 0.0 to 100.0</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.IApplication.ProgressClear">
+            <summary>
+            Stops the current progressbar action. Clears and hides the progressbar.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.IApplication.StatusInfo">
+            <summary>
+            Gets or sets the text displayed in the statusbar info item of the application.
+            </summary>
+            <value><see langword="string"/></value>
+        </member>
+        <member name="P:Novartis.Msi.Core.IApplication.StatusCoord">
+            <summary>
+            Gets or sets the text displayed in the statusbar coordinate item of the application.
+            </summary>
+            <value>A <see langword="string"/> value.</value>
+            <remarks>
+            The text-string usually contains the two formatted coordinate-values
+            delimited by a tabulator (<c>\t</c>).
+            </remarks>
+        </member>
+        <member name="P:Novartis.Msi.Core.IApplication.StatusIntensity">
+            <summary>
+            Gets or sets the text displayed in the statusbar intensity item of the application.
+            </summary>
+            <value>A <see langword="string"/> value.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.IApplication.ActiveView">
+            <summary>
+            Gets the currently active view of the application.
+            </summary>
+            <value>The active view as <see cref="T:Novartis.Msi.Core.IView"/> reference.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.IApplication.PaletteIndex">
+            <summary>
+            Gets or sets the index of the currently selected palette to use for image representation.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.IApplication.MinIntensitySettings">
+            <summary>
+            Gets or sets the minimum intensity settings currently in effect for the active view.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.IApplication.MaxIntensitySettings">
+            <summary>
+            Gets or sets the minimum intensity settings currently in effect for the active view.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.IContent">
+            <summary>
+            Interface to access content specific functionality.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.IContent.GetContentViews(Novartis.Msi.Core.Document)">
+            <summary>
+            Create the views of this content.
+            </summary>
+            <param name="doc">The <see cref="P:Novartis.Msi.Core.IContent.Document"/> object this content is associated with.</param>
+            <returns>A <see cref="T:Novartis.Msi.Core.ViewCollection"/> object containing the views.</returns>
+        </member>
+        <member name="P:Novartis.Msi.Core.IContent.Document">
+            <summary>
+            Gets the this content belongs to.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.ILoader">
+            <summary>
+            Interface for all loaders.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ILoader.Name">
+            <summary>
+            Gets the Name of this loader.
+            </summary>
+            <remarks>
+            Every loader should have a unique name.
+            </remarks>
+        </member>
+        <member name="P:Novartis.Msi.Core.ILoader.SupportedFileTypes">
+            <summary>
+            Gets a List of supported file types.
+            </summary>
+            <remarks>
+            Retrieves a list of <see cref="T:Novartis.Msi.Core.FileTypeDescriptor"/>s.
+            </remarks>
+        </member>
+        <member name="T:Novartis.Msi.Core.ImageData">
+            <summary>
+            This class is for the Imagedata part of the imaging class
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.dx">
+            <summary>
+            Extend in x direction
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.dy">
+            <summary>
+            Extend in y direction
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.intensityDelta">
+            <summary>
+            Intensity Delta
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.data">
+            <summary>
+            Data array
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.minIntensity">
+            <summary>
+            Minimum Intensity
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.maxIntensity">
+            <summary>
+            Maximum Intensity
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.meanValue">
+            <summary>
+            Mean Value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.medianValue">
+            <summary>
+            Median Value
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.imageMaxIntensity">
+            <summary>
+            Max Intensity of Image 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.currentMaxIntensity">
+            <summary>
+            Current Max Intensity
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.currentMinIntensity">
+            <summary>
+            Current Min Intensity
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.bitmap">
+            <summary>
+            Bitmap assocaited to this object
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ImageData.masscal">
+            <summary>
+            Mass Calibration
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageData.#ctor(Novartis.Msi.Core.Document,System.Single[][],System.String,Novartis.Msi.Core.ImageMetaData,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single[],Novartis.Msi.Core.ExperimentType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.ImageData"/> class 
+            </summary>
+            <param name="doc">
+            The <see cref="T:Novartis.Msi.Core.Document"/> this object belongs to.
+            </param>
+            <param name="data">Data Array</param>
+            <param name="name">Image data Name</param>
+            <param name="metaData">Meta Data</param>
+            <param name="minIntensity">Min Intensity</param>
+            <param name="maxIntensity">Max Intensity</param>
+            <param name="meanValue">Mean Value</param>
+            <param name="medianValue">Median Value</param>
+            <param name="dx">point in x</param>
+            <param name="dy">point in y</param>
+            <param name="massCal">Mass Calibration</param>
+            <param name="experimenttype">Experiment Type</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageData.InsertImageRep(Novartis.Msi.Core.ViewImageController)">
+            <summary>
+            Inserts this object's image-representation in a image-view.
+            </summary>
+            <param name="viewCtrl">
+            ViewController in which the image-representation is to be inserted.
+            </param>
+            <exception cref="T:System.NotImplementedException">Insert Image Rep Error</exception>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageData.GetBitmap">
+            <summary>
+            Gets the bitmap from this image data.
+            </summary>
+            <returns>A BitmapSource instance.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageData.GetBitmaps">
+            <summary>
+            Gets the list of all bitmaps from this image data object.
+            Just one bitmap in this case.
+            </summary>
+            <returns>A BitmapSourceList containing the bitmap.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageData.SetPixel(System.Byte[],System.Int32,System.Int32,System.Int32,System.Byte)">
+            <summary>
+            Sets Pixels Method
+            this method will exclusively work for an intended bitmap with 8 BitsPerPixe colorinformation!!
+            </summary>
+            <param name="bits">num of bits</param>
+            <param name="x">extend in x</param>
+            <param name="y">extend in y</param>
+            <param name="stride">stride param</param>
+            <param name="c">colour param</param>
+            <remarks>this method will exclusively work for an intended bitmap with 8 BitsPerPixel colorinformation!!</remarks>
+        </member>
+        <member name="M:Novartis.Msi.Core.ImageData.CreateBitmap">
+            <summary>
+            Creates a Bitmap
+            uses data[x][y] to define the intensity points.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.Data">
+            <summary>
+            Gets the intensity (data) values.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.CurrentMaxIntensity">
+            <summary>
+            Gets or sets the current value for the maximum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.CurrentMinIntensity">
+            <summary>
+            Gets or sets the current value for the minimum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.MaxIntensity">
+            <summary>
+            Gets the value for the maximum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.MinIntensity">
+            <summary>
+            Gets the value for the minimum intensity
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.ImageMaxIntensity">
+            <summary>
+            Gets or set the value for the maximum intensity in the image.
+            </summary>
+            <remarks>This value may be larger than the maximum intensity from the device data.</remarks>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.IntensityDelta">
+            <summary>
+            Gets or sets the delta (step width) when increasing/decreasing the intensity.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.MeanValue">
+            <summary>
+            Gets the mean value of all intensities of this image data.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.MedianValue">
+            <summary>
+            Gets the median value of all intensities of this image data.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.Dx">
+            <summary>
+            Gets the Extend in x direction.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.Dy">
+            <summary>
+            Gets the extend in y direction.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.XPoints">
+            <summary>
+            The number of data points in x direction
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.YPoints">
+            <summary>
+            The number of data points in y direction
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ImageData.MassCal">
+            <summary>
+            Gets or sets the Mass Calibration array
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.IntensityGraph">
+            <summary>
+            Interaction logic for IntensityGraph.xaml
+            </summary>
+            <summary>
+            IntensityGraph
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensityGraph.intensitypoints">
+            <summary>
+            Intensity Poitns to map
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensityGraph.numberofpoints">
+            <summary>
+            Number of Data Points
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensityGraph.minmassrange">
+            <summary>
+            Min Mass or Chosen Range 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensityGraph.maxmassrange">
+            <summary>
+            Max Mass or Chosen Range 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.IntensityGraph.chosenmass">
+            <summary>
+            Chosen mass
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.IntensityGraph.#ctor(System.Single[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.IntensityGraph"/> class 
+            </summary>
+            <param name="data">Input Data to be displayed on line chart</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.IntensityGraph.PopulateChart">
+            <summary>
+            This routine populates the main chart
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.IntensityGraph.CloseButtonClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event Handler for close button
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Arggs</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.IntensityGraph.IntensityChartMouseRightButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Right Mouse Button down event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Object</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.IntensityGraph.IntensityChartMouseLeftButtonUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Left Mouse Button down event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Object</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.IntensityGraph.IntensityChartMouseRightButtonUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Right Mouse Button up event
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Object</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.IntensityGraph.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.IntensityGraph.ChosenMass">
+            <summary>
+            Gets the chosen mass
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.IntensityGraph.MaxMassRange">
+            <summary>
+            Gets the Max mass of chosen range
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.IntensityGraph.MinMassRange">
+            <summary>
+            Gets the Min mass of chosen range
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.ISpecFileLoader">
+            <summary>
+            Defines the common interface for all spectrometry file loading classes.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ISpecFileLoader.Load(System.String)">
+            <summary>
+            Loads the content of a spectrometry file specified by filename.
+            </summary>
+            <param name="filePath">The files path as a <see cref="T:System.String"/>.</param>
+            <returns>The content of the spectrometry file represented by a <see cref="T:Novartis.Msi.Core.ISpecFileContent"/> implementation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ISpecFileLoader.Load(System.IO.Stream)">
+            <summary>
+            Loads the content of a spectrometry file provided as a stream.
+            </summary>
+            <param name="inStream">A <see cref="T:System.IO.Stream"/> to the files content.</param>
+            <returns>ISpecFileContent Object</returns>
+        </member>
+        <member name="T:Novartis.Msi.Core.ISpecFileContent">
+            <summary>
+            Common interface for classes holding spectrometry file data.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ISpecFileContent.GetContent">
+            <summary>
+            Retrieve the loaded content in a list of <see cref="T:Novartis.Msi.Core.BaseObject"/>s.
+            </summary>
+            <returns>The imaging data the object implementing this interface contains.</returns>
+        </member>
+        <member name="T:Novartis.Msi.Core.ViewEventHandler">
+            <summary>
+            A delegate type for view related notifications.
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="T:Novartis.Msi.Core.ViewCancelEventHandler">
+            <summary>
+            A delegate type for view related, cancelable notifications.
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="T:Novartis.Msi.Core.IView">
+            <summary>
+            Mandatory interface for all ImageViewer application's views.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.IView.SetViewController(Novartis.Msi.Core.ViewController)">
+            <summary>
+            Sets the <see cref="P:Novartis.Msi.Core.IView.ViewController"/>-object that connects this
+            view with the model data.
+            </summary>
+            <param name="viewCtrl">View Controller Object</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.IView.Close">
+            <summary>
+            Close this view finally.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.IView.Update">
+            <summary>
+            Update the views content.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.IView.Document">
+            <summary>
+            Gets the <see cref="P:Novartis.Msi.Core.IView.Document"/> object this view belongs to.
+            </summary>
+            <value>
+            A <see cref="P:Novartis.Msi.Core.IView.Document"/> reference.
+            </value>
+        </member>
+        <member name="P:Novartis.Msi.Core.IView.ViewController">
+            <summary>
+            Gets the <see cref="P:Novartis.Msi.Core.IView.ViewController"/> object of this view.
+            </summary>
+            <value>
+            A <see cref="P:Novartis.Msi.Core.IView.ViewController"/> reference.
+            </value>
+        </member>
+        <member name="P:Novartis.Msi.Core.IView.Title">
+            <summary>
+            Gets the name of this view.
+            </summary>
+            <value> A <see cref="T:System.String"/> object containing the name.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.IView.ViewObject">
+            <summary>
+            Gets the view object of this view. A view object is an object characterizes a view.
+            There is a 1 to 1 relationship between IView and IViewObject.
+            </summary>
+            <value>The views view object as IViewObject reference.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.IView.ViewExperimentType">
+            <summary>
+            Gets the Experiment Type that we are currently viewing
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.JpegWriter">
+            <summary>
+            A specialized BitmapWriter instance producing jpeg files
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.JpegWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.JpegWriter"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.JpegWriter.Write(System.Windows.Media.Imaging.BitmapSource,System.IO.Stream,System.Boolean)">
+            <summary>
+            Writes the bimap data specified by the given <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> object JPEG format
+            to the given stream.
+            </summary>
+            <param name="bitmap">The bitmap data to be written to stream.</param>
+            <param name="outStream">The stream to which the bitmap data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.JpegWriter.Initialise">
+            <summary>
+            Initialises various parameters, called from contructor
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.JpegWriter.Name">
+            <summary>
+            The name of this BitmapWriter instance.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.BinNumberWindow">
+            <summary>
+            Interaction logic for BinNumberWindow.xaml
+            </summary>
+            <summary>
+            BinNumberWindow
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BinNumberWindow.numberofdatapoints">
+            <summary>
+            Number of Data Points
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BinNumberWindow.pointsinXdirection">
+            <summary>
+            Points in X directions
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BinNumberWindow.pointsinYdirection">
+            <summary>
+            Points in Y directions
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BinNumberWindow.masscal">
+            <summary>
+            New mass calibration array
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BinNumberWindow.importdatasize">
+            <summary>
+            Import Data Size
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BinNumberWindow.newminmassdp">
+            <summary>
+            New Min Mass DP
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BinNumberWindow.newmaxmassdp">
+            <summary>
+            New Max Mass DP
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BinNumberWindow.newnumberofdatapoints">
+            <summary>
+            New Number of Data Points
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.BinNumberWindow.newbinsize">
+            <summary>
+            New Bin Size
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.BinNumberWindow.#ctor(System.Single,System.Single,System.Single[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.BinNumberWindow"/> class 
+            </summary>
+            <param name="pointsinXdirection">Points in X dir</param>
+            <param name="pointsinYdirection">Points in Y dir</param>
+            <param name="massCal">Mass calibtaion array</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.BinNumberWindow.InitialiseWindow">
+            <summary>
+            This routine Initialises
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.BinNumberWindow.SetUpInitialParameter">
+            <summary>
+            This method sets up the main UI controls with the input data
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.BinNumberWindow.NewBinSizeSet">
+            <summary>
+            This routine sets the new bin number and calculates the file size
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.BinNumberWindow.Masstodp(System.Single)">
+            <summary>
+            This routine calculates the datapoint to a mass
+            </summary>
+            <param name="searchMass">Mass to Search</param>
+            <returns>Search mass</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.BinNumberWindow.ResetBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Reset Button, resets the controls
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.BinNumberWindow.OkBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            OK Button
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Routed Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.BinNumberWindow.CalcBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event Handllder for Calculate button
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Arg</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.BinNumberWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.BinNumberWindow.BinSize">
+            <summary>
+            Gets the Bin Size
+            The BinSize property exposed to external object is set to the newbinsize
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.BinNumberWindow.MinMassDP">
+            <summary>
+            Gets the Min Mass DP
+            The MinMass property exposed to external object is set to the mewminmassdp
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.BinNumberWindow.MaxMassDP">
+            <summary>
+            Gets the Max Mass DP
+            The MAxMass property exposed to external object is set to the newmaxmassdp
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.MetaDataItem">
+            <summary>
+            This class defines a atomic metadata item. Such an item has a name and a value.
+            The value has to corespond to the specified type and will be interpreted of being
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.MetaDataItem.name">
+            <summary>
+            The name of this item.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.MetaDataItem.type">
+            <summary>
+            The type of this item.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.MetaDataItem.value">
+            <summary>
+            The value of this item.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.MetaDataItem.mutable">
+            <summary>
+            Can the item be modified?
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.MetaDataItem.#ctor(System.String,System.Type,System.Object,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.MetaDataItem"/> class.
+            </summary>
+            <param name="itemName">The name of this item.</param>
+            <param name="itemType">The type of this item's value.</param>
+            <param name="itemValue">This item's value.
+            The <see cref="T:System.Object"/> will be interpreted as being of the type specified by <paramref name="itemType"/>.</param>
+            <param name="itemMutable">A <see cref="T:System.Boolean"/> value stating if the item could be modified.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.MetaDataItem.FirePropertyChanged(System.String)">
+            <summary>
+            Fire Property Changed Method
+            </summary>
+            <param name="propertyName">Property Name</param>
+        </member>
+        <member name="E:Novartis.Msi.Core.MetaDataItem.PropertyChanged">
+            <summary>
+            Event indicating the change of a property.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.MetaDataItem.Name">
+            <summary>
+            Gets or sets the name of this item.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.MetaDataItem.Type">
+            <summary>
+            Gets or sets the type of this item.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.MetaDataItem.Value">
+            <summary>
+            Gets or sets the value of this item.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.MetaDataItem.Mutable">
+            <summary>
+            Gets or sets a value indicating whether item can be modified.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.MetaDataItem.ValueString">
+            <summary>
+            Gets or sets the value of this item in textual representation.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.Palettes">
+            <summary>
+            This class manages the different palettes used to display the images.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Palettes.palettesList">
+            <summary>
+            Palette List
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.Palettes.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.Palettes"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.Palettes.GetNamePalettePair(System.Int32)">
+            <summary>
+            Gets the <see cref="T:System.Collections.Generic.KeyValuePair`2"/> object with the given index.
+            </summary>
+            <param name="index">The index of the <see cref="T:System.Collections.Generic.KeyValuePair`2"/> object to retrieve.</param>
+            <returns>A <see cref="T:System.Collections.Generic.KeyValuePair`2"/> reference.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Palettes.CreateFalseColoredPalette">
+            <summary>
+            Create the <see cref="T:System.Windows.Media.Imaging.BitmapPalette"/> to be used with false color representation.
+            The used algorhithm is based on dephased run of sinuscurves for the three color channels.
+            </summary>
+            <returns>Bitmap Palette</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Palettes.LoadPalettes(System.String)">
+            <summary>
+            Try and load all palettes defined in the given <paramref name="paletteFile"/>.
+            The file is expected to be a correct palettes xml file.
+            </summary>
+            <param name="paletteFile">The fullpath xml file from which to read the palettes.</param>
+            <returns>A list of name - BitmapPalette pairs.</returns>
+        </member>
+        <member name="P:Novartis.Msi.Core.Palettes.Count">
+            <summary>
+            Gets the count of palettes in this palettes instance.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Palettes.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:System.Windows.Media.Imaging.BitmapPalette"/> object with the given index.
+            </summary>
+            <param name="index">The index of the BitmapPalette to get.</param>
+            <returns>A <see cref="T:System.Windows.Media.Imaging.BitmapPalette"/> reference.</returns>
+        </member>
+        <member name="T:Novartis.Msi.Core.PlugInHost">
+            <summary>
+            Implementing the IPlugInHost interface this class realizes the
+            communication between the PlugIns and the core / application.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.PlugInHost.PlugIns">
+            <summary>
+            PlugIn Data List
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.PlugInHost.CollectPlugIns">
+            <summary>
+            Finds and collects the PlugIns in the PlugIn-Path.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.PlugInHost.InitializePlugIns">
+            <summary>
+            Loads the collected PlugIns by calling the <see cref="M:Novartis.Msi.PlugInSystem.IPlugIn.Initialize(Novartis.Msi.PlugInSystem.IPlugInHost)"/> method.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.PlugInHost.FireApplicationClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Invoke the ApplicationClosing event on the interested PlugIns, if any.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.ComponentModel.CancelEventArgs"/>-reference.
+            </param>
+        </member>
+        <member name="E:Novartis.Msi.Core.PlugInHost.ApplicationClosing">
+            <summary>
+            An event PlugIns can use to be notified when the application is going to be
+            closed. Registering to this event can be used to execute a PlugIns-cleanup-code
+            before the application finally exits...
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.PngWriter">
+            <summary>
+            A specialized BitmapWriter instance producing png files
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.PngWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.PngWriter"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.PngWriter.Write(System.Windows.Media.Imaging.BitmapSource,System.IO.Stream,System.Boolean)">
+            <summary>
+            Writes the bimap data specified by the given <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> object PNG format
+            to the given stream.
+            </summary>
+            <param name="bitmap">The bitmap data to be written to stream.</param>
+            <param name="outStream">The stream to which the bitmap data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.PngWriter.Initialise">
+            <summary>
+            Initialise various parameter called in Constructor
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.PngWriter.Name">
+            <summary>
+            Name of this writer.
+            </summary>
+            <remarks>
+            Every writer should have a unique name.
+            </remarks>
+        </member>
+        <member name="T:Novartis.Msi.Core.RegionOfInterest">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RegionOfInterest"/> class
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.title">
+            <summary>
+            This is the string identifier of the body part of interest.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.area">
+            <summary>
+            The is the area occupied in the region of Interest
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.meanintensity">
+            <summary>
+            This is the mean intensity of the rio
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.imagefilepath">
+            <summary>
+            This is the path of the image file onto which this ROI is attached
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.thumbpositions">
+            <summary>
+            This is the colleciton of Points for the thumb position of the  
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.imagedata">
+            <summary>
+            The image data to be displayed in this view.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.roifillcolor">
+            <summary>
+            The is the color used to fill the ROI when it is closed
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.roistrokecolor">
+            <summary>
+            The is the color used to border of the closed ROI
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.pointsinsideroi">
+            <summary>
+            Contains all the points inside ROI
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterest.numberofpointsinsideroi">
+            <summary>
+            Number of points inside Roi
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.RegionOfInterest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RegionOfInterest"/> class
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.RegionOfInterest.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RegionOfInterest"/> class
+            </summary>
+            <param name="title">Title of the ROI Element</param>
+            <param name="imagefilepath">Path of the file in which the RIO is created</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.RegionOfInterest.#ctor(System.String,System.Double,System.Double,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RegionOfInterest"/> class
+            Constructor used for Roi Data view 
+            </summary>
+            <param name="title">Title of the ROI Element</param>
+            <param name="area">roi area</param>
+            <param name="meanintensity"> Roi mean intensity</param>
+            <param name="numberofpointsinsideroi">number of points inside roi</param>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.Title">
+            <summary>
+            Gets or Sets the Title property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.Area">
+            <summary>
+            Gets or Sets the Area property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.MeanIntensity">
+            <summary>
+            Gets or Sets the MeanIntensity property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.ImageFilePath">
+            <summary>
+            Gets or Sets the ImageFilePath property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.ThumbPositions">
+            <summary>
+            Gets or Sets the ThumbPositions property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.ImageData">
+            <summary>
+            Gets or Sets the ImageData property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.RoiFillColor">
+            <summary>
+            Gets or Sets the roifillcolor property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.RoiStrokeColor">
+            <summary>
+            Gets or Sets the roistrokecolor property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.PointsInsideRoi">
+            <summary>
+            Gets or Sets the pointsinsideroi property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterest.NumberOfPointsInsideRoi">
+            <summary>
+            Gets or Sets the numberofpointsinsideroi property
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.RegionOfInterestDataSetView">
+            <summary>
+            Interaction logic for RegionOfInterestDataSetView.xaml
+            </summary>
+            <summary>
+            RegionOfInterestDataSetView
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RegionOfInterestDataSetView.observableroiobjects">
+            <summary>
+            Contains a list of ROI objects
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.RegionOfInterestDataSetView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RegionOfInterestDataSetView"/> class 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.RegionOfInterestDataSetView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RegionOfInterestDataSetView.ObservableRoiObjects">
+            <summary>
+            Gets or Sets the list of roiObjects
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.RoiListForViews">
+            <summary>
+            Simple Utility Class to help sort some objects for some views
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiListForViews.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RoiListForViews"/> class 
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiListForViews.ListOfRois">
+            <summary>
+            List of Region of Interest
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiListForViews.ImagePath">
+            <summary>
+            Path of the Image File
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.RoiProject">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RoiProject"/> class
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RoiProject.roiprojectname">
+            <summary>
+            Name of Roi Project
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RoiProject.roiprojecttype">
+            <summary>
+            Roi Project Dataset Type
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RoiProject.roiObjects">
+            <summary>
+            Contains a list of ROI objects
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiProject.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RoiProject"/> class
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiProject.RoiProjectName">
+            <summary>
+            Gets or Sets the roiprojectname property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiProject.RoiProjectType">
+            <summary>
+            Gets or Sets the roiprojectname property
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiProject.RoiObjects">
+            <summary>
+            Gets or Sets the list of roiObjects
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.RoiThumb">
+            <summary>
+            Class set up for Region of Interest thumb
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RoiThumb.position">
+            <summary>
+            Property definition for ThumbId
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RoiThumb.thumbid">
+            <summary>
+            Property definition for ThumbId
+            Will be used later for adding new thumbs in the middle of 2 existing thumbs
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.RoiThumb.imagesource">
+            <summary>
+            Property definition for Image Source
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiThumb.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RoiThumb"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiThumb.#ctor(System.Int32,System.Windows.Controls.ControlTemplate,System.String,System.Windows.Point)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RoiThumb"/> class
+            </summary>
+            <param name="thumbid">thumb id</param>
+            <param name="template">Control Template </param>
+            <param name="imageSource">image source</param>
+            <param name="position">position of thumb</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiThumb.#ctor(System.Int32,System.Windows.Controls.ControlTemplate,System.String,System.Windows.Point,System.Windows.Controls.Primitives.DragDeltaEventHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.RoiThumb"/> class
+            </summary>
+            <param name="thumbid">thumb id</param>
+            <param name="template">Control Template </param>
+            <param name="imageSource">image source</param>
+            <param name="position">position of thumb</param>
+            <param name="dragDelta">drag delta</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiThumb.SetPosition(System.Windows.Point)">
+            <summary>
+            Helper method for setting the position of our thumb 
+            </summary>
+            <param name="value"> Position to set the thumb</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiThumb.LinkTo(Novartis.Msi.Core.RoiThumb)">
+            <summary>
+            Returns a line geometry with updated positions to be processed outside. 
+            This method establishes a link between current thumb and specified thumb.
+            </summary>
+            <param name="target">target thumb</param>
+            <returns>Line Geometry </returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiThumb.LinkTo(Novartis.Msi.Core.RoiThumb,System.Windows.Media.LineGeometry)">
+            <summary>
+            This method establishes a link between current thumb and target thumb using a predefined line geometry
+            Note: this is commonly to be used for drawing links with mouse when the line object is predefined outside this class
+            </summary>
+            <param name="target">target thumb</param>
+            <param name="line">Line Geometry </param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiThumb.UpdateLinks">
+            <summary>
+            This method updates all the starting and ending lines assigned for the given thumb 
+            according to the latest known thumb position on the canvas
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.RoiThumb.OnApplyTemplate">
+            <summary>
+            Upon applying template we apply the "Title" and "ImageSource" properties to the template elements.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiThumb.Position">
+            <summary>
+            Handle the content of the textblock element taken from control template
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiThumb.ThumbId">
+            <summary>
+            Handle the content of the textblock element taken from control template
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiThumb.ImageSource">
+            <summary>
+            This property will handle the content of the image element taken from control template
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiThumb.EndLines">
+            <summary>
+            List of End lines
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.RoiThumb.StartLines">
+            <summary>
+            List of Start lines
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.SpecFileLoaderList">
+            <summary>
+            A list of <see cref="T:Novartis.Msi.Core.ISpecFileLoader"/> implementing objects.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.SpecFileLoaderList.FindSupportingLoader(System.String)">
+            <summary>
+            Finds in this list the first instance supporting the given <paramref name="extension"/>.
+            </summary>
+            <param name="extension">A <see cref="T:System.String"/> object specifying the extension for which
+            a loader instance is searched.</param>
+            <returns>A <see cref="T:Novartis.Msi.Core.ISpecFileLoader"/> reference to the object found or null,
+            if no such object is found.</returns>
+        </member>
+        <member name="T:Novartis.Msi.Core.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.AllFilesDesc">
+            <summary>
+              Looks up a localized string similar to All files.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.AllFilesExt">
+            <summary>
+              Looks up a localized string similar to *.*.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.FalseColorPalette">
+            <summary>
+              Looks up a localized string similar to false color.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.GrayScalePalette">
+            <summary>
+              Looks up a localized string similar to grayscale.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.JpegFileDescription">
+            <summary>
+              Looks up a localized string similar to JPEG Image (*.jpg).
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.MetaDataTemplates">
+            <summary>
+              Looks up a localized string similar to MetaDataTemplate.xml.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.PalettesFile">
+            <summary>
+              Looks up a localized string similar to Palettes.xml.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.PlugInsXmlFile">
+            <summary>
+              Looks up a localized string similar to PlugIns.xml.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.PngFileDescription">
+            <summary>
+              Looks up a localized string similar to PNG Image (*.png).
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.Strings.TiffFileDescription">
+            <summary>
+              Looks up a localized string similar to TIFF Image (*.tiff).
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.TiffWriter">
+            <summary>
+            Encapsulates the tiff output functionality
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.TiffWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.TiffWriter"/> class
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.TiffWriter.Write(System.Windows.Media.Imaging.BitmapSource,System.IO.Stream,System.Boolean)">
+            <summary>
+            Writes the bimap data specified by the given <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> object TIFF format
+            to the given stream.
+            </summary>
+            <param name="bitmap">The bitmap data to be written to stream.</param>
+            <param name="outStream">The stream to which the bitmap data will be written.</param>
+            <param name="showProgress">If true, a progress indicator will be shown.</param>
+            <returns>A <see cref="T:System.Boolean"/> value indicating the success of the write operation.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.TiffWriter.Initialise">
+            <summary>
+            Initialises various parameters, called from contructor
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.TiffWriter.Name">
+            <summary>
+            Gets the name of the tiff writer.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.Util">
+            <summary>
+            Contains general helper methods.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Util.EpsDefault">
+            <summary>
+            Default epsilon. A small <see langword="double"/>-value near zero.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Util.NoError">
+            <summary>
+            No error
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Util.ErrorMoreData">
+            <summary>
+            More data available
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Util.ErrorNotConnected">
+            <summary>
+            Not connected
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Util.UniversalNameInfoLevel">
+            <summary>
+            Level 1
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.NearEqual(System.Double,System.Double)">
+            <summary>
+            Compares two double values for equality with default tolerance.
+            </summary>
+            <param name="a">First value to be compared.</param>
+            <param name="b">Second value to be compared.</param>
+            <remarks>
+            Compares double values for equality, taking into consideration that
+            floating point values should never be directly compared using ==.
+            2 doubles could be conceptually equal, but vary by a .0000001 which
+            would fail in a direct comparison. To circumvent that, a tolerance
+            value is used to see if the difference between the 2 doubles is less
+            than the desired amount of accuracy.</remarks>
+            <returns> true or false </returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.NearEqual(System.Double,System.Double,System.Double)">
+            <summary>
+            Compares two double values for equality.
+            </summary>
+            <param name="a">First value to be compared.</param>
+            <param name="b">Second value to be compared.</param>
+            <param name="tolerance">The tolerance for equality.</param>
+            <remarks>
+            Compares double values for equality, taking into consideration that
+            floating point values should never be directly compared using ==.
+            2 doubles could be conceptually equal, but vary by a .0000001 which
+            would fail in a direct comparison. To circumvent that, a tolerance
+            value is used to see if the difference between the 2 doubles is less
+            than the desired amount of accuracy.</remarks>
+            <returns> true or false </returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.NearZero(System.Double)">
+            <summary>
+            Compares a double value for equality with zero by using default tolerance.
+            </summary>
+            <param name="a">The value to be compared.</param>
+            <returns> true or false </returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.NearZero(System.Double,System.Double)">
+            <summary>
+            Compares a double value for equality with zero by using the given tolerance.
+            </summary>
+            <param name="a">The value to be compared.</param>
+            <param name="tolerance">The tolerance for equality.</param>
+            <returns> true or false </returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.ParseCommandLine(System.String[])">
+            <summary>
+            Transform the command line string array into a Dictionary.
+            </summary>
+            <param name="args">The string array, usually string[] args from your main function</param>
+            <returns>A Dictionary where the arguments are the keys and parameters to the arguments are in a List. Keep in mind that the List may be null!</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.ParseCommandLine(System.String[],System.Boolean)">
+            <summary>
+            Transform the command line string array into a Dictionary.
+            </summary>
+            <param name="args">The string array, usually string[] args from your main function</param>
+            <param name="ignoreArgumentCase">Ignore the case of arguments? (if set to false, then "/beta" and "/Beta" are two different parameters</param>
+            <returns>A Dictionary where the arguments are the keys and parameters to the arguments are in a List. Keep in mind that the List may be null!</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.ParseCommandLine(System.String[],System.Boolean,System.Boolean)">
+            <summary>
+            Transform the command line string array into a Dictionary.
+            </summary>
+            <param name="args">The string array, usually string[] args from your main function</param>
+            <param name="ignoreArgumentCase">Ignore the case of arguments? (if set to false, then "/beta" and "/Beta" are two different arguments)</param>
+            <param name="allowMultipleParameters">Allow multiple parameters to one argument.</param>
+            <returns>A Dictionary where the arguments are the keys and parameters to the arguments are in a List. Keep in mind that the List may be null!</returns>
+            <remarks>
+            If allowMultipleParameters is set to true, then "/delta omega kappa" will cause omega and kappa to be two parameters to the argument delta.
+            If allowMultipleParameters is set to false, then omega will be a parameter to delta, but kappa will be assigned to string.Empty.
+            </remarks>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.IsValidFilePath(System.String)">
+            <summary>
+            Returns true if fileName is a valid local file-name of the form:
+            X:\, where X is a drive letter from A-Z
+            </summary>
+            <param name="fileName">The filename to check</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.PathToUnc(System.String)">
+            <summary>
+            Returns the UNC path for a mapped drive or local share.
+            </summary>
+            <param name="fileName">The path to map</param>
+            <returns>The UNC path (if available)</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.SubstitueInvalidPathChars(System.String,System.Char)">
+            <summary>
+            Returns a new string equivalent to the given <paramref name="path"/> but having all
+            invalid characters(according to <see cref="M:System.IO.Path.GetInvalidFileNameChars"/>) substituted
+            with the <paramref name="substitute"/> char.
+            </summary>
+            <param name="path">The <see cref="T:System.String"/> to process.</param>
+            <param name="substitute">The substituition <see cref="T:System.Char"/>.</param>
+            <returns>A <see cref="T:System.String"/> equivalent to <paramref name="path"/> but stripped of invalid chars.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.ReportException(System.Exception)">
+            <summary>
+            Produce a entry of the given in the application's logfile.
+            </summary>
+            <param name="exception">The exception to be reported and eternalized in the logfile.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.WNetGetUniversalName(System.String,System.Int32,Novartis.Msi.Core.Util.UniversalNameInfo@,System.Int32@)">
+            <summary>
+            Get a UNC name
+            </summary>
+            <param name="localPath">Local Path</param>
+            <param name="infoLevel">Info Level</param>
+            <param name="buffer">Internal Buffer</param>
+            <param name="bufferSize">Buffer Size</param>
+            <returns> integer return value</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.Util.WNetGetUniversalName(System.String,System.Int32,System.IntPtr,System.Int32@)">
+            <summary>
+            Get a UNC name
+            </summary>
+            <param name="localPath">Local Path</param>
+            <param name="infoLevel">Info Level</param>
+            <param name="buffer">Internal Buffer</param>
+            <param name="bufferSize">Buffer Size</param>
+            <returns> integer return value</returns> 
+        </member>
+        <member name="T:Novartis.Msi.Core.Util.UniversalNameInfo">
+            <summary>
+            Unc name
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.Util.UniversalNameInfo.UniversalName">
+            <summary>
+            Universal Name
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.ViewImage">
+            <summary>
+            Interaction logic for ViewImage.xaml
+            </summary>
+            <summary>
+            ViewImage
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.NewRoiCmd">
+            <summary>
+            The StartRoi command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.CloseRoiCmd">
+            <summary>
+            The CloseRoi command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.FixRoiCmd">
+            <summary>
+            The StopRoi command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.DeleteRoiCmd">
+            <summary>
+            The DeleteRoi command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.EditRoiCmd">
+            <summary>
+            The DeleteRoi command.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.ViewRoiDataCmd">
+            <summary>
+            The ViewRoiDataRoi command
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.ZoomCmd">
+            <summary>
+            The Zoom command
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.title">
+            <summary>
+            The title of this view as a <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.document">
+            <summary>
+            The <see cref="P:Novartis.Msi.Core.ViewImage.Document"/> object this view belongs to.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.imageData">
+            <summary>
+            The image data to be displayed in this view.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.mousewheelmode">
+            <summary>
+            Parameter used to control the mousewheelmode
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.viewController">
+            <summary>
+            The <see cref="P:Novartis.Msi.Core.ViewImage.ViewController"/> object of this view.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.start">
+            <summary>
+            Point used for panning feature
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.origin">
+            <summary>
+            Point used for panning feature
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.viewcenter">
+            <summary>
+            Point used for centering when view resized
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.link">
+            <summary>
+            Line drawn by the mouse before connection established 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.connectors">
+            <summary>
+            Geometry Group used to hold connectors between thumbs
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.roiPath">
+            <summary>
+            Path used to defining the lines between thumbs
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.startthumb">
+            <summary>
+            First thumb
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.sourcethumb">
+            <summary>
+            variable to hold the thumb drawing started from
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.targetthumb">
+            <summary>
+            target thumb to connect to from the source thumb
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.currentselectedroithumbs">
+            <summary>
+            List contain thumbs
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.currentthumbId">
+            <summary>
+            Marker for current thumb ID
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.roiObjects">
+            <summary>
+            Contains a list of ROI objects
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.currentselectedroiobject">
+            <summary>
+            Holder for current selected regionofinterest
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.currentselectedroipolygon">
+            <summary>
+            Current selected polygon
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.currentroipolygonsinview">
+            <summary>
+            List of the current roi polygons (closed/fixed ROI's) in the view 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.insidePolygon">
+            <summary>
+            Flag used to indicate if we're inside a polygon
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.showTicFlag">
+            <summary>
+            Using this flag to load the Tic Image on start up
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.inImageCtrlFlag">
+            <summary>
+            Flag to show if we're inside the image control
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.isRoiDrawMode">
+            <summary>
+            Flag used to define if we're in draw mode
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.firsttimepass">
+            <summary>
+            flag used for defining the first thumb position and the rest of the thumbs
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.panningmode">
+            <summary>
+            Flag to set if we're in panning mode for mouse move event
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.zoomflag">
+            <summary>
+            Flag for zoom feature
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.#ctor(Novartis.Msi.Core.Document,Novartis.Msi.Core.Imaging,System.String,Novartis.Msi.Core.ExperimentType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.ViewImage"/> class 
+            </summary>
+            <param name="doc">The <see cref="P:Novartis.Msi.Core.ViewImage.Document"/> object this view belongs to.</param>
+            <param name="imageData">The <see cref="T:Novartis.Msi.Core.Imaging"/> data to be displayed in this view.</param>
+            <param name="title">The title of this view as a <see cref="T:System.String"/>.</param>
+            <param name="experimenttype">Experiment Type <see cref="T:Novartis.Msi.Core.ExperimentType"/>.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.Close">
+            <summary>
+            Close this view finally.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.Update">
+            <summary>
+            Update the views content.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.SetViewController(Novartis.Msi.Core.ViewController)">
+            <summary>
+            Sets the <see cref="P:Novartis.Msi.Core.ViewImage.ViewController"/>-object that connects this
+            view with the model data.
+            </summary>
+            <param name="viewCtrl">View Controller Object</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.GetBitmap">
+            <summary>
+            Get the currently displayed bitmap.
+            </summary>
+            <returns>A BitmapSource instance.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.GetImagingData">
+            <summary>
+            Retrieve the image data object currently associated with this view.
+            </summary>
+            <returns>An Imaging object representing the image data.</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.RoiInitialSetup">
+            <summary>
+            Call this routine after the ViewImage has been constructed
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.CreateContextMenus">
+            <summary>
+            Create context menus at runtime
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnDragDelta(System.Object,System.Windows.Controls.Primitives.DragDeltaEventArgs)">
+            <summary>
+            Event hanlder for dragging functionality support
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">DragDelta Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ShowThumbPos(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Method to display the postion of the thumb
+            </summary>
+            <param name="e">Mouse Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.CleanUpRoi">
+            <summary>
+            This routine resets local ROI drawing object ready for the next
+            'New' ROI object. 
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.CloseCurrentRoi">
+            <summary>
+            Closes the current ROI. Links the first and last thumb
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.CalculatePointsInRoi">
+            <summary>
+            Calculates are the Points inside ROI We will create a temporary Canvas and draw 
+            the ROI Polygon onto it (Canvas is white, polygon is black)
+            Steps:-
+            1) Create a canvas in memory, with a white background
+            2) Make a bitmap image of this canvas - save it to memory (file)
+            3) Generate a bitmap of that canvas
+            4) Iterate through the bitmap and find the position of all black pixels - store them
+            5) Calculate the NumberOfPointsInsideRoi
+            6) Clean up objects
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.FixRoi">
+            <summary>
+            Fixes the ROI and does various bits of processing
+            Step 1 Check to see if regionofinterest is closed. If it isn't close it.
+            Step 2 Create a polygon for the area around
+            Step 3 Disable the Roithumbs - so they can't be moved.
+            Step 4 Find all points inside of the polygon and save them to pointsInsideRoi
+            Step 5 Copy currentselectedroithumbs into ThumbPositions
+            Step 6 Calculate the area of the ROI
+            Step 7 Calculate the MeanIntensity of the ROI 
+            Step 8 Copy the contents of regionofinterest Objects to the List of ROI Objects for this view
+            Step 9 Enable Menus
+            Step 10 Clean up Local ROI objects
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.CalculateArea(Novartis.Msi.Core.RegionOfInterest)">
+            <summary>
+            This Method takes an array of points from ROI and calculates the area
+            </summary>
+            <param name="regionofinterest">Region of Interest who's area we want to calculate</param>
+            <returns>returns the area of the regionofinterest</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.CalculateMeanIntensity(Novartis.Msi.Core.RegionOfInterest)">
+            <summary>
+            This method calculates the mean intensity in the currentroi
+            and updates the currentroi with the mean intensity value
+            </summary>
+            <param name="regionofinterest">Region oif Interest</param>
+            <returns>Mean Intensity</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.DrawRoiPolygons">
+            <summary>
+            This routines draws the polygons from the contents of this.RoiObjects
+            Used when Opening a ROI Project where ROI's are already defined.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.NewRoi(System.String)">
+            <summary>
+            Creates a New Roi
+            </summary>
+            <param name="chosenRoiHeader">Chosen Menu item</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.DeleteRoi">
+            <summary>
+            Deletes a Roi
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.EditRoi">
+            <summary>
+            Edits a Roi
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.SetContextMenuStatus">
+            <summary>
+            This routine enables and disable the context menu's depending on the status off the view
+            1) mnuNew.items: Check to see which polygons exist in the view. Disable all menu options which have valid polygons
+                             Enable ones which don't have valid polygons. ** Note Can ONLY have one polygon per ROI **
+            2) mnuFix, mnuClose: If there is a Open of closed path enable otherwise disable
+            3) mnuDelete: If there is a currentselectedroipolygon or currentselectedroiobject enable Otherwise disable
+            4) mnuEdit: If we have a currently selected polygon enable the Edit menu, otherwise disable
+            5) mnuViewRoiData: If there are 'any' polygons on the current view enable mnuViewRoiData, otherwise disable
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.Refresh">
+            <summary>
+            Refresh Method
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.CalculatedPixelPointActualPosition(System.Windows.Point,Novartis.Msi.Core.ImageData)">
+            <summary>
+            This methods takes the input cursor point and returns the actual position in mm
+            </summary>
+            <param name="cursorpoint">Point of current Mouse Cursor</param>
+            <param name="actImage">ImageData Object</param>
+            <returns>Calculated Pixel Point</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.CalculatedPixelPointRelative(System.Windows.Point,Novartis.Msi.Core.ImageData)">
+            <summary>
+            This methods takes the input cursor point and returns the calculated the relative pixel point
+            </summary>
+            <param name="cursorpoint">Point of current Mouse Cursor</param>
+            <param name="actImage">ImageData Object</param>
+            <returns>Calculated Pixel Point</returns>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.SetStatusInfos(System.Windows.Point)">
+            <summary>
+            Sets information about the the position of the cursor in the status bar
+            </summary>
+            <param name="point"> Point defining the cursor position</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ShowIntensityPoints(System.Windows.Point)">
+            <summary>
+            Takes mouse input position and brings up graph of all intensity points
+            This routine assumes that we have a Imagedata of ImageSpectrumData
+            </summary>
+            <param name="point">Position of the Mouse</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.AppContextPropertyChanged(System.Object,Novartis.Msi.Core.ApplicationEventArgs)">
+            <summary>
+            Property Change Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.AppContextActiveViewChanged(Novartis.Msi.Core.IView,System.EventArgs)">
+            <summary>
+            Active view changed Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ViewImageLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            ViewImage Load Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.DrawingAreaLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            DrawingArea Loaded Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ViewImageMouseWheel(System.Object,System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            ViewImage MouseWheel Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ViewImageKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            ViewImage KeyDown Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ViewImageKeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            This is key up event for handling panning and zooming 
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Key Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ViewImageLeftMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            ViewImage MouseDown Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ImageCtrlMouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            imageCtrl MouseEnter
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ImageCtrlMouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            imageCtrl MouseLeave Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ImageCtrlMouseMove(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            ImageCtrlMouseMove Event Handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ImageCtrlMouseLeftButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            This event is used for the panning feature
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">event args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ImageCtrlMouseLeftButtonUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            This event is used for the panning feature flag
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">event args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.ImageCtrlMouseRightButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Right Mouse Down Event. Used to bring up the intensity graph.
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">event args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnCmdNewRoi(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            Handles the newROI command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e">object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnCmdSubNewRoi(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Sub menu Item Clicked
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnCmdCloseRoi(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the CloseRoi command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e">object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnCmdFixRoi(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the StopRoi command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e">object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnCmdDeleteRoi(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the DeleteRoi command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e">object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnCmdEditRoi(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the EditRoi command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e">object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnCmdZoom(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Zoom command event.
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e">object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnCmdViewRoiDataCommand(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            View Roi Data
+            </summary>
+            <param name="sender">The UI-Element sending the event.</param>
+            <param name="e"><see cref="T:System.Windows.RoutedEventArgs"/>object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.WindowPreviewMouseLeftButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Event Handler for Preview Mouse Left Button down - this will contain
+            Code for handling the ROI drawing routines.
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Handler</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnMouseThumbEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Event Handler for entering thumb area
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnMouseThumbLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Event Handler for leaving thumb area
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.MenuItemMouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Used to get out of ROI Draw Mode
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Handler</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnMousePolygonMove(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+             Mouse move event inside the polygon
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Handler</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnMousePolygonEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+             Mouse Enter event for entering a polygon
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Handler</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnMousePolygonLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+             Mouse Leave event for entering a polygon
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Handler</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnMouseLeftButtonPolygonDown(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+             Mouse left down entering a polygon
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Handler</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.OnMousePolygonRightButtonDown(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Mouse rightdown inside a polygon event handler
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Mouse Event Handler</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.DrawingAreaSizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            This routine has been written to deal with window resizing
+            </summary>
+            <param name="sender">Sender Object</param>
+            <param name="e">Size Change Event Args</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.NewRoiCommand">
+            <summary>
+            Gets Routed startRoiCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.CloseRoiCommand">
+            <summary>
+            Gets Routed closeRoiCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.FixRoiCommand">
+            <summary>
+            Gets Routed fixRoiCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.DeleteRoiCommand">
+            <summary>
+            Gets Routed deleteRoiCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.EditRoiCommand">
+            <summary>
+            Gets Routed editRoiCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.ZoomCommand">
+            <summary>
+            Gets Routed ZoomCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.ViewRoiDataCommand">
+            <summary>
+            Gets Routed ViewRoiDataRoiCommand
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.Document">
+            <summary>
+            Gets the Document object this view belongs to.
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.ViewController">
+            <summary>
+            Gets the ViewController object of this view.
+            </summary>
+            <value>
+            A <see cref="P:Novartis.Msi.Core.ViewImage.ViewController"/> reference.
+            </value>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.Title">
+            <summary>
+            Gets the name of this view.
+            </summary>
+            <value> A <see cref="T:System.String"/> object containing the name.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.ViewExperimentType">
+            <summary>
+            Gets or sets the viewexperimenttype
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.ViewObject">
+            <summary>
+            Gets the view object of this view. A view object is an object characterizes a view.
+            There is a 1 to 1 relationship between IView and IViewObject.
+            </summary>
+            <value>The views view object as IViewObject reference.</value>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.DrawingArea">
+            <summary>
+            Gets the drawing area for this 2D-view object.
+            </summary>
+            <value>
+            A <see cref="T:System.Windows.Controls.Grid"/> object.
+            </value>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewImage.RoiObjects">
+            <summary>
+            Gets or Sets the list of roiObjects
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.ViewImage.MouseWheelMode">
+            <summary>
+            This enum is used to set which feature we are using with the mousewheel action 
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.MouseWheelMode.None">
+            <summary>
+            Default No mode set
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.MouseWheelMode.Intensity">
+            <summary>
+            Intensity scroller
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImage.MouseWheelMode.ZoomMode">
+            <summary>
+            Zoom Mode 
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.ViewImageController">
+            <summary>
+            This class defines a controller for ViewImage objects. Objects of this class
+            implement the connection of a ViewImage object and the data model (document).
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.ViewController">
+            <summary>
+            Mandator base class of all view controller objects.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewController.document">
+            <summary>
+            The document this view controller belongs to.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.#ctor(Novartis.Msi.Core.Document,Novartis.Msi.Core.IView)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Novartis.Msi.Core.ViewController"/> class 
+            </summary>
+            <param name="doc">
+            The <see cref="P:Novartis.Msi.Core.ViewController.Document"/> object this view controller belongs to.
+            </param>
+            <param name="view">
+            The <see cref="T:Novartis.Msi.Core.IView"/> object this view controller belongs to.
+            </param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.InsertRepresentation(Novartis.Msi.Core.BaseObject)">
+            <summary>
+            Insert the baseobjects representation.
+            </summary>
+            <param name="baseObject">
+            Reference to the <see cref="T:Novartis.Msi.Core.BaseObject"/> instance.
+            </param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.RemoveBaseObject(Novartis.Msi.Core.BaseObject)">
+            <summary>
+            Removes the given <paramref name="baseObject"/> from the associated view.
+            </summary>
+            <param name="baseObject">The <see cref="T:Novartis.Msi.Core.BaseObject"/>-instance to be removed.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.InsertAllObjects">
+            <summary>
+            Insert the representation of all objects contained in the document
+            into the view (via this viewcontroller).
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.SelectObject(Novartis.Msi.Core.BaseObject)">
+            <summary>
+            The given object will be drawn in it's selected representation.
+            </summary>
+            <param name="baseObject">A <see cref="T:Novartis.Msi.Core.BaseObject"/>-instance.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.DeselectObject(Novartis.Msi.Core.BaseObject)">
+            <summary>
+            The given object will be drawn in it's deselected (normal) representation.
+            </summary>
+            <param name="baseObject">A <see cref="T:Novartis.Msi.Core.BaseObject"/>-instance.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.Print">
+            <summary>
+            Print the views content.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.OnMouseWheel(System.Object,System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            React on the view's 'MouseWheel' event.
+            </summary>
+            <param name="sender"><see cref="T:System.Object"/>-reference to the sender of this event.</param>
+            <param name="e"><see cref="T:System.Windows.Input.MouseWheelEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.OnMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            React on the view's 'MouseWheel' event.
+            </summary>
+            <param name="sender"><see cref="T:System.Object"/>-reference to the sender of this event.</param>
+            <param name="e"><see cref="T:System.Windows.Input.MouseButtonEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewController.OnKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            React on the view's 'KeyDown' event.
+            </summary>
+            <param name="sender"><see cref="T:System.Object"/>-reference to the sender of this event.</param>
+            <param name="e"><see cref="T:System.Windows.Input.KeyEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewController.View">
+            <summary>
+            Gets or sets the View attached to this object
+            </summary>
+        </member>
+        <member name="P:Novartis.Msi.Core.ViewController.Document">
+            <summary>
+            Gets or sets the Document attached to this object
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImageController.RotationStep">
+            <summary>
+            The step for rotating the content in degrees.
+            </summary>
+        </member>
+        <member name="F:Novartis.Msi.Core.ViewImageController.viewImage">
+            <summary>
+            The associated view as ViewImage-object (polymorphism at work...)
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.#ctor(Novartis.Msi.Core.Document,Novartis.Msi.Core.ViewImage)">
+            <summary>
+            Initializes a new instance of the ViewImageController class 
+            </summary>
+            <param name="doc">Document attached to Object</param>
+            <param name="view">View attached to Object</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.SelectObject(Novartis.Msi.Core.BaseObject)">
+            <summary>
+            The given object will be drawn in it's selected representation.
+            </summary>
+            <param name="baseObject">A <see cref="T:Novartis.Msi.Core.BaseObject"/>-instance.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.DeselectObject(Novartis.Msi.Core.BaseObject)">
+            <summary>
+            The given object will be drawn in it's deselected (normal) representation.
+            </summary>
+            <param name="baseObject">A <see cref="T:Novartis.Msi.Core.BaseObject"/>-instance.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.InsertRepresentation(Novartis.Msi.Core.BaseObject)">
+            <summary>
+            Insert the baseobjects representation.
+            </summary>
+            <param name="baseObject">
+            Reference to the <see cref="T:Novartis.Msi.Core.BaseObject"/> instance.
+            </param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.RemoveBaseObject(Novartis.Msi.Core.BaseObject)">
+            <summary>
+            Removes the given <paramref name="baseObject"/> from the associated view.
+            </summary>
+            <param name="baseObject">The <see cref="T:Novartis.Msi.Core.BaseObject"/>-instance to be removed.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.ShowAll">
+            <summary>
+            Adjust the view so that all current content is visible.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.Rotate(System.Double)">
+            <summary>
+            Perform a rotation about the given <paramref name="rotationAngle"/> around the center
+            of the associated view.
+            </summary>
+            <param name="rotationAngle">A <see langword="double"/>-value defining the rotation.
+            The rotation angle is expected to be in degrees.
+            </param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.RotateLeft">
+            <summary>
+            Perform a rotate left (counterclockwise) in the associated view.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.RotateRight">
+            <summary>
+            Perform a rotate right (clockwise) in the associated view.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.Print">
+            <summary>
+            Print the views content.
+            </summary>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.OnKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            React on the view's 'KeyDown' event.
+            </summary>
+            <param name="sender"><see cref="T:System.Object"/>-reference to the sender of this event.</param>
+            <param name="e"><see cref="T:System.Windows.Input.KeyEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.OnMouseWheel(System.Object,System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            React on the view's 'MouseWheel' event.
+            </summary>
+            <param name="sender"><see cref="T:System.Object"/>-reference to the sender of this event.</param>
+            <param name="e"><see cref="T:System.Windows.Input.MouseWheelEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="M:Novartis.Msi.Core.ViewImageController.OnMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            React on the view's 'MouseWheel' event.
+            </summary>
+            <param name="sender"><see cref="T:System.Object"/>-reference to the sender of this event.</param>
+            <param name="e"><see cref="T:System.Windows.Input.MouseButtonEventArgs"/>-object specifying the event.</param>
+        </member>
+        <member name="T:Novartis.Msi.Core.ViewCollection">
+            <summary>
+            A collection of <see cref="T:Novartis.Msi.Core.IView"/> objects.
+            </summary>
+        </member>
+        <member name="T:Novartis.Msi.Core.ViewControllerList">
+            <summary>
+            A list of <see cref="T:Novartis.Msi.Core.ViewController"/> objects.
+            </summary>
+        </member>
+    </members>
+</doc>

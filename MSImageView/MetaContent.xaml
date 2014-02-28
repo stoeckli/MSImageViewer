@@ -1,0 +1,68 @@
+﻿<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<!--                                                                                -->
+<!-- © 2012 Novartis AG. All rights reserved.                                       -->
+<!--                                                                                -->
+<!-- These coded instructions, statements and computer programs contain unpublished -->
+<!-- proprietary information of Novartis AG and are protected by federal  copyright -->
+<!-- law. They may not be disclosed to third parties or copied or duplicated in any -->
+<!-- form, in whole or in part, without the prior written consent of Novartis AG.   -->
+<!--                                                                                -->
+<!--                                                                                -->
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
+
+<ad:DockableContent x:Class="Novartis.Msi.MSImageView.MetaContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ad="clr-namespace:AvalonDock;assembly=AvalonDock"
+             x:Name="metaData" mc:Ignorable="d" Title="Meta Data" Background="White" DockableStyle="DockableToBorders" IsCloseable="False">
+    <Grid x:Name="LayoutRoot">
+        <ListView x:Name="listView" ItemsSource="{Binding}" SelectionChanged="ListViewSelectionChanged">
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="HorizontalContentAlignment"	Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment"		Value="Center" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.View>
+                <GridView ColumnHeaderToolTip="Image MetaData">
+
+                    <!-- ItemName Column -->
+                    <GridViewColumn Header="Data Item" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- ItemValue Column -->
+                    <GridViewColumn Header="Value" Width="110">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Path=ValueString}" IsEnabled="{Binding Path=Mutable}" Width="{Binding Path=Parent.Width}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+                
+                
+            </ListView.View>
+            
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="menuItemSave" Header="_Save MetaData to file..." Click="SaveToFileClick" />
+                    <Separator />
+                    <MenuItem x:Name="menuItemLoad" Header="_Load MetaData from file..." Click="LoadFromFileClick" />
+                    <Separator />
+                    <MenuItem x:Name="menuItemDelete" Header="_Delete selected line(s)" Click="DeleteClick" IsEnabled="False" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            
+        </ListView>
+    </Grid>
+</ad:DockableContent>

@@ -1,0 +1,66 @@
+﻿<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<!--                                                                                -->
+<!-- © 2011 Novartis AG. All rights reserved.                                       -->
+<!--                                                                                -->
+<!-- These coded instructions, statements and computer programs contain unpublished -->
+<!-- proprietary information of Novartis AG and are protected by federal  copyright -->
+<!-- law. They may not be disclosed to third parties or copied or duplicated in any -->
+<!-- form, in whole or in part, without the prior written consent of Novartis AG.   -->
+<!--                                                                                -->
+<!-- Author: Bernhard Rode, wega Informatik AG                                      -->
+<!--                                                                                -->
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
+
+<UserControl x:Class="Novartis.Msi.Core.ViewImage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="clr-namespace:Novartis.Msi.Core"
+    Background="White"
+    ClipToBounds="False" Loaded="ViewImageLoaded" Name="view2D" Focusable="True"
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+    MouseWheel="ViewImageMouseWheel" KeyDown="ViewImageKeyDown" KeyUp="ViewImageKeyUp" MouseLeftButtonDown="ViewImageLeftMouseDown" PreviewMouseLeftButtonDown="WindowPreviewMouseLeftButtonDown" >
+    
+    <UserControl.CommandBindings>
+        <CommandBinding Command="local:ViewImage.NewRoiCommand" Executed="OnCmdNewRoi"/>
+        <CommandBinding Command="local:ViewImage.FixRoiCommand" Executed="OnCmdFixRoi"/>
+        <CommandBinding Command="local:ViewImage.CloseRoiCommand" Executed="OnCmdCloseRoi"/>
+        <CommandBinding Command="local:ViewImage.DeleteRoiCommand" Executed="OnCmdDeleteRoi"/>
+        <CommandBinding Command="local:ViewImage.EditRoiCommand" Executed="OnCmdEditRoi"/>
+        <CommandBinding Command="local:ViewImage.ZoomCommand" Executed="OnCmdZoom"/>
+        <CommandBinding Command="local:ViewImage.ViewRoiDataCommand" Executed="OnCmdViewRoiDataCommand"/>
+    </UserControl.CommandBindings>
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Templates/BasicShape.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Border Background="White" Margin="5,5,10,10">
+        <Border.BitmapEffect>
+            <DropShadowBitmapEffect Opacity="0.7" Direction="270"/>
+        </Border.BitmapEffect>
+        <Border Name="border" Background="#FFF0F8FE" ClipToBounds="True">
+            <Canvas Name="drawingArea" ClipToBounds="False" Loaded="DrawingAreaLoaded" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SizeChanged="DrawingAreaSizeChanged">
+                <Image Name="imageCtrl" Width="{Binding ElementName=drawingArea, Path=ActualWidth}" Height="{Binding ElementName=drawingArea, Path=ActualHeight}"
+                           Visibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseEnter="ImageCtrlMouseEnter" MouseLeave="ImageCtrlMouseLeave" MouseMove="ImageCtrlMouseMove" MouseLeftButtonDown="ImageCtrlMouseLeftButtonDown" MouseLeftButtonUp="ImageCtrlMouseLeftButtonUp" MouseRightButtonDown="ImageCtrlMouseRightButtonDown" />
+                <Canvas.ContextMenu>
+                        <ContextMenu Name="ROIContextMenu">
+                            <MenuItem Name="mnuNew"  Header="New Roi" Command="local:ViewImage.NewRoiCommand" IsEnabled="False" />
+                            <MenuItem Name="mnuClose" Header="Close Roi" Command="local:ViewImage.CloseRoiCommand" IsEnabled="False" />
+                            <MenuItem Name="mnuFix" Header="Fix Roi" Command="local:ViewImage.FixRoiCommand" IsEnabled="False" MouseEnter="MenuItemMouseEnter"/>
+                            <Separator />
+                            <MenuItem Name="mnuDelete" Header="Delete Roi" Command="local:ViewImage.DeleteRoiCommand" IsEnabled="False" />
+                            <MenuItem Name="mnuEdit" Header="Edit Roi" Command="local:ViewImage.EditRoiCommand" IsEnabled="False" />
+                        <Separator />
+                            <MenuItem Name="mnuViewRoiData" Header="View Roi Data" Command="local:ViewImage.ViewRoiDataCommand" IsEnabled="False" />
+                            <Separator />
+                            <MenuItem Name="mnuZoom" Header="Zoom" Command="local:ViewImage.ZoomCommand" IsEnabled="True" />
+                        </ContextMenu>
+                </Canvas.ContextMenu>
+            </Canvas>
+        </Border>
+    </Border>
+</UserControl>

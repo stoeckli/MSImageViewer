@@ -1,0 +1,2 @@
+- Analyst 1.4.2
+- FlashQuant Components for Analyst 1.4.2
